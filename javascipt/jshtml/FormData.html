@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>XHR2中新增FormData对象</title>
+	</head>
+	<body>
+	<script>
+		//封装好的方法
+		function postFormData(url,data,callback){  //url文件上传的接口，data要上传的对象，callback上传完成后的函数
+			if(typeof FormData==="undefined")
+			  throw new Error("不支持FormData！");
+			  
+			  var xhr =new XMLHttpRequest();                     //新的http请求
+			  xhr.open("POST",url);                              //对指定的URL发送POST请求
+			  xhr.onreadystatechange=function(){                 //简单的事件处理程序
+			    		if(xhr.readyState===4 && xhr.status==200){ 
+                               callback(xhr)                     //响应完成，调用回调函数
+			    		}
+			    }
+		      var formdata=new FormData();   //创建新的对象
+		      for(var key in data) {         //将传入的data的参数，复制到新的formdata对象中
+		      	if(!data.hasOwnProperty(key)) continue;  //跳过继承的属性
+		      	  var value =data[key];
+		      	  if(typeof value=== 'function') continue; //跳过data中的方法
+		      	  //每个属性变成请求的一部分
+		      	  formdata.append(key , value); //将data中的属性和值，添加到fromdata对象中
+		      }
+		     
+		     //在multipart/form-data请求主体中发送名/值对
+		     //每对都是请求的一个部分，注意，当出入FormData对象时 
+		     //send()会自动设置Content-Type头
+		     request.send(formdata);
+		      
+		}
+	</script>
+	</body>
+</html>

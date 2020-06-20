@@ -1,0 +1,34 @@
+
+POST http://58.49.89.28:8011/workSheet/save HTTP/1.1
+content-type: application/json
+
+{
+ "workNum": "2020031215110004",
+  "processLevel": "2",
+  "reflectClassify": "2",
+  "reflectArea": "3",
+  "reflectPerson": "vv",
+  "happenAddress": "光谷二十路",
+  "reflectContent": "3",
+  "happenDate": "2020-03-12 19:00:00",
+  "reflectType": "3",
+  "recordOrigin": "3",
+  "reflectOrigin": "3",
+  "loginUser": "房份",
+  "loginUserId": "55",
+  "loginSite": "3",
+  "acceptUnit": "捷讯科技2",
+  "receiveReportTime": "2020-03-12 19:59:00",
+  "distributeTime": "2020-03-12 19:59:00",
+  "internalWorkNumber": "217",
+  "incomeCall": "89408888",
+  "linkPhone": "15079999999",
+  "longitude": "116.2",
+  "latitude": "110.2",
+  "customerDataNo": "20200318888",
+  "isBack": "0"
+}
+###
+GET   http://58.49.89.19:8011/fronWorkSheet/dynamic/list?pageNum=1&pageSize=10&keywords=&reflectClassify= HTTP/1.1
+content-type: application/json
+

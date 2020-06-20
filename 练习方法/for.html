@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<body>
+    <div id="app">
+        <div v-for="(item,index) in list" :key="index">dd{{item.end | typeFormat}}{{item.name}}</div>
+        <div @click="add()">增加</div>
+    </div>
+</body>
+<script>
+     function deepClone(source) {
+  if (!source && typeof source !== 'object') {
+    throw new Error('error arguments', 'shallowClone')
+  }
+  const targetObj = source.constructor === Array ? [] : {}
+  Object.keys(source).forEach(keys => {
+    if (source[keys] && typeof source[keys] === 'object') {
+      targetObj[keys] = deepClone(source[keys])
+    } else {
+      targetObj[keys] = source[keys]
+    }
+  })
+  return targetObj
+}
+    var app = new Vue({
+        el: '#app',
+        filters: {
+			typeFormat: function(value) {
+               console.log(value.length)
+				if (!value) return ''
+                if(value.length>8){
+                    state ="";
+                }else{
+                    state=value
+                }
+	
+			
+				return state;
+			},
+        },
+        data: {
+            message: 'Hello Vue!',
+            list: [
+                // { end: '2020-03-06 16:10:00' ,name:'黄'},
+                // { end: '2020-03-06 16:18:00',name:'黄' },
+                // { end: '2020-03-06 16:19:00',name:'黄' },
+            ],
+            str:"",
+        },
+        created: function () {
+
+         
+        },
+        methods: {
+ 
+
+            add(){
+                let arr=[
+                { end: '2020-03-06 17:10:00' ,name:'黄'},
+                { end: '2020-03-06 17:18:00',name:'黄' },
+                { end: '2020-03-06 17:19:00',name:'黄' },
+                ]
+             this.list=this.list.concat(arr);
+             let copy=deepClone(this.list) ;
+            copy=copy.map(e=>{
+				    let num =(new Date(e.end).getTime()/1000) -  (new Date().getTime()/1000);
+                    if(num<=0 || isNaN(num)){
+                        e.end=0;
+                    }else{
+                        e.end=num;
+                    }
+				  return e
+			})
+            for(let i=0;i<copy.length;i++){
+                if(copy[i].end != 0){
+                    this.timeDown(copy[i].end,i);
+               }
+            }
+            },
+            //倒计时
+            timeDown(num,index) {
+                let second = num;
+                var timer = null;
+                let that = this;
+              function CountDown() {
+                    if (second >= 0) {
+                        //已知秒数，算出几分几秒几秒
+                        let h = Math.floor(second / (60 * 60));
+                        let m = Math.floor(second / 60 % 60);
+                        let s = Math.floor(second % 60);
+                        h = `${(h < 10 ? "0" + h : h)}`;
+                        m = `${(m < 10 ? "0" + m : m)}`;
+                        s = `${(s < 10 ? "0" + s : s)}`
+                        that.list[index].end=`${h}:${m}:${s}`
+                        --second;
+                    } else {
+                        clearInterval(timer);
+                        console.log("计时器结束")
+                    }
+                }
+                timer = setInterval(CountDown, 1000);
+            }
+        }
+    })
+</script>
+
+</html>

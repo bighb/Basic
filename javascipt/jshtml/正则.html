@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+//		 \d ==>[0-9] : 1位数字
+//      \w ==>[0-9a-zA-Z_] : 1位数字，字母或下划线
+//      \s ==>[空字符] : 代表一位空字符：空格，Tab符
+         // () 表示某一块如何
+// 问题：test方法默认只要部分匹配即可！
+//    解决：都要在正则表达式前加^，后加$
+//          ^表示开头位置的xxxx  注意 当[^xxx]放在字符类中，表示除xxx外的字符都可以
+//          $表示结尾位置的xxxx
+//          ^和$联用表示从头到尾必须完整匹配
+			var reg=new RegExp;
+			reg=/^\d{2}\d{2}[0-9xX]$/;
+			console.log(reg)
+		    var str="43442";
+		//  console.log(   str.replace(reg,'我'))
+		 // console.log(str)
+		   console.log(reg.exec(str))// var arr=reg.exec(str)：在str中查找所有符合reg规定的关键字
+		</script>
+	</body>
+</html>

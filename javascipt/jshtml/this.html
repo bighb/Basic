@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<title></title>
+</head>
+
+<body>
+	<!--<script type="text/javascript">
+			function b() {
+				function a() {
+					console.log(this)//this指向window
+				}
+				a()
+			}
+			b()
+		</script>-->
+	<script type="text/javascript">
+		var baz = 1;
+		var foo = {
+			bar: function () {
+				return this.baz;
+			},
+
+		}
+		//console.log(typeof (f = foo.bar)()); //“undefined”
+
+		/* 
+		 this的指向
+		 */
+		function foo1() {
+			var a = 2;
+			this.bar();
+		}
+		function bar() {
+			console.log(this);
+
+			console.log(this.a);
+
+		}
+		foo1();//ReferenceError:a is not defined
+	</script>
+
+</body>
+
+</html>

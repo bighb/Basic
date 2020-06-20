@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Person(name,age) {
+            this.name=name;
+            this.age=age;
+        }
+        Person.prototype.say=function(){
+            console.log("你好");
+            
+        }
+        let chinaP=new Person("中国人",22);
+        chinaP.say();
+        console.log(chinaP);
+         //chinaP.__proto__ === Person.prototype
+        console.log(Person.prototype);
+        console.log(chinaP.__proto__);
+        //Person.prototype.constructor === Person
+         function Animal(sex){
+            this.sex;
+         }
+        Person.prototype.constructor= Animal
+        console.log(Person.prototype.constructor );
+        let catA=new Person("猫",22,'男');
+ 
+      
+       console.log(catA); //猫，22
+       
+
+    </script>
+</body>
+</html>

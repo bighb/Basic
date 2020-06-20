@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button type="button" id="hi">hi</button>
+    <script>
+        /* 
+        订阅了这个DOM节点的click事件，然后等待用户发布事件
+         */
+        let hiBtn=document.getElementById("hi");
+        hiBtn.addEventListener("click",function(){
+            alert("hi")
+        })
+    </script>
+</body>
+</html>

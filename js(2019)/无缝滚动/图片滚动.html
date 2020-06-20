@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+     *{
+        margin: 0;
+        padding: 0;
+    }
+    #box{
+        width: 400px;
+        height: 200px;
+        border: solid 1px red;
+        margin-left: 200px;
+        margin-top: 200px;
+        display: flex;
+        flex-shrink: 0;
+        flex-basis: 400px;
+        overflow: hidden;
+        padding: 20px 0;
+        overflow-x: scroll;
+    }
+     ul{
+        display: flex;
+        
+       
+        height: 200px;
+    }
+    li{
+        list-style: none;
+        width: 400px;
+        height: 200px;
+        flex-shrink: 0;
+    }
+    img{
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+    }
+</style>
+<body>
+    <div id="box">
+      <ul id="list1">
+            <li><img src="https://img.zcool.cn/community/01e3495dc223a8a801209e1fdfa19b.png@1380w" alt=""></li>
+            <li><img src="https://img.zcool.cn/community/01d15c5dc223b9a8012163badaf549.png@1380w" alt=""></li>
+            <li><img src="https://img.zcool.cn/community/01a2d15dc223d2a801209e1f06068a.png@1380w" alt=""></li>
+            <li><img src="https://img.zcool.cn/community/0143d55dc223e1a801209e1fd09632.png@1380w" alt=""></li>
+        </ul>
+        <ul id="list2"></ul>
+    </div>
+    <script type="text/javascript">
+        var list1=document.getElementById("list1");
+        let list2=document.getElementById("list2");
+        let box=document.getElementById('box');
+        let img=document.getElementsByTagName("img")
+        console.log(list1.innerHTML);
+        console.log(list2);
+        console.log(img[0].clientWidth,box.clientWidth);
+        
+        list2.innerHTML=list1.innerHTML;//克隆list1的数据，使得list2和list1的数据一样
+        function tomove(params) {
+           
+            console.log(box.scrollLeft);
+            if(box.scrollLeft>=list1.offsetWidth){ //滚动条距离顶部的值恰好等于list1的高度时，达到滚动临界点，此时将让scrollTop=0,让list1回到初始位置，实现无缝滚动
+            box.scrollLeft=0;
+        }else{
+            box.scrollLeft= box.scrollLeft+ img[0].clientWidth
+        }
+        }
+       setInterval(tomove,1000);
+    </script>
+</body>
+</html>

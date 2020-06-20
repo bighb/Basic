@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="data.isShow=true">显示</button>
+    <button  onclick="data.isShow=false">隐藏</button>
+    <p v-show="isShow" >我是内容</p>
+    <script>
+        var data={
+            isShow : false,
+        }
+        let view=document.querySelector('p')
+        function updateView(value) {
+            view.style.display = value ? '' : 'none';
+        }
+          Object.defineProperty(
+              data,
+              'isShow',
+              {
+
+                  set : function(val){
+                      console.log("设置属性值"+val)
+                      updateView(val)
+                  }
+              }
+          )
+          //显式的声明一个对象，get表示获取一个属性，得到的值，set表示在改变一个属性时触发的回调返回的值
+          Object.defineProperty(
+              data,
+              'age',
+              {
+
+                  get : function(){
+                      return 1
+                  }
+              }
+          )
+          setTimeout(function(){
+           //  console.log(that);
+              
+              console.log("访问data");
+                data.isShow=false
+              
+              console.log(data.age);
+              
+              
+          },1000)
+    </script>
+</body>
+
+</html>

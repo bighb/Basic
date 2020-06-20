@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>早期文件上传</title>
+	</head>
+	<body>
+		<input type="file"  id="wj" />
+		<input type="file"  id="wj2" />
+	</body>
+	<!--
+		当html表单同时包含文件上传元素和其他元素时，浏览器必须用“multipart/form-data"的特殊Content_Type来用post上传
+	-->
+	<script type="text/javascript">
+		//查找所有file元素
+		//注册onchange事件
+		//发送post请求
+		window.onload=function(){
+		  //当文档准备就绪时运行
+			var elts = document.getElementsByTagName("input");  //获得所有的input元素
+			console.log(elts)
+			for(var i=0 ;i<elts.length;i++){
+				var input=elts[i];
+				if(input.type !== "file") continue; //跳过所有非文件上传元素 continue是结束本次循环， break 结束整体循环
+				var url ="../data/upload";    //获取上传url
+			   
+			    input.addEventListener("change",function(){  //当用户选择文件时 
+			    	console.log(this.files)     
+			    	var file=this.files[0]  //每个input type=file都有一个files属性 里面就是上传的内容
+			    	if(!file) return;      //如果没有文件不做任何事
+			    	var xhr=new XMLHttpRequest(); //创建新请求
+			    	xhr.open("POST",url);
+			    	xhr.send(file);
+			    	xhr.onreadystatechange=function(){
+			    		if(xhr.readyState===4 && xhr.status==200){
+			    			console.log(xhr.responseText)   //响应数据
+			    		}
+			    	}
+			    })
+				
+			}
+			
+		}
+		
+		
+	</script>
+</html>

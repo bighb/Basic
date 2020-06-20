@@ -1,0 +1,77 @@
+<html>
+	<head>
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*	Promise 适用于一次性读取一堆异步请求操作*/
+			
+			//请求一堆promise
+				 Promise.all([
+				 	$.ajax({url:xxx,dataType:'json'}),
+				 	$.ajax({url:xxx,dataType:'json'}),
+				 	$.ajax({url:xxx,dataType:'json'}),
+				 ]).then(
+				 	result =>{
+				 	//成功返回的结果
+				 },  err=>{
+				 	//错误的结果
+				 })
+		 
+		        //请求一堆generator
+		        runner(function *(){
+		        	let data1=yield $.ajax({url:xxx,dataType:'json'});
+		        	let data1=yield $.ajax({url:xxx,dataType:'json'});
+		        	let data1=yield $.ajax({url:xxx,dataType:'json'});
+		        })
+		         
+		   /*分割线====================================================*/      
+		         //Promise 处理逻辑性操作
+		         Promise,all([
+		         	$.ajax({url:xxx,dataType:'json'})
+		         ]).then(
+		         	result=>{
+		         		let userData=result[0];
+		         		if(userData.type=='VIP'){
+		         		  Promise,all([
+		         	          $.ajax({url:getVIPItems,dataType:'json'})
+		                  ]).then({
+		                  	result=>{
+		                  		let items=reuslt[0];
+		                  	},
+		                  	err=>{
+		         		      alert('错了');
+		         	        }
+		                  })
+		         		}else{
+		         		  Promise,all([
+		         	          $.ajax({url:getItems,dataType:'json'})
+		                  ]).then({
+		                  	result=>{
+		                  		let items=reuslt[0];
+		                  	},
+		                  	err=>{
+		         		      alert('错了');
+		         	        }
+		                  })
+		         		
+		         		}
+		         	}
+		         	,err=>{
+		         		alert('错了');
+		         	}
+		         )
+                 //   generator 适用于带有逻辑性的异步操作
+                 
+                 runner(function *(){  //runner自动执行generator的库，这里是bule写的，没有引入
+                 	let userData=yield $.ajax({type:"get" url:'getUserData',dataType:'json'});
+                 	if(userData.type=='VIP'){
+                 		let items=yield $.ajax({type:"get",url:"getVIPItems",dataType:'json'});
+                 	}ekse{
+                 		let items=yield $.ajax({type:"get",url:"getItems",dataType:'json'});
+                 	}
+                 })
+		</script>
+
+	</body>
+</html>

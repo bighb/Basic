@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 解析构值用途：函数参数的默认值
+        function name(a,b={page:1,limit:10}) {
+            console.log(a,b);
+            
+        }
+        name()
+        name(2,{page:2,limit:20})
+    </script>
+    
+</body>
+</html>

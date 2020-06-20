@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<div>
+			<button onclick="demo()">发送通知</button>
+		</div>
+		<script type="text/javascript">
+			function demo(){
+				let permission = Notification.permission;
+				if(permission == "granted") {
+				// 已同意，开始发送通知
+				const notice = new Notification("前端宇宙情报局", {
+				body: "这20个不常用的Web API真的有用吗?，别问，问就是有用🈶",
+				icon: "我的掘金头像",
+				data: {
+					url: "https://www.baidu.com"
+				}
+			});
+		
+
+			} else if(permission == "denied") {
+				// 不同意，发不了咯
+			} else {
+				// 其他状态，可以重新发送授权提示
+				Notification.requestPermission();
+			}
+			}
+	
+			
+
+		
+			//// 点击回调
+			//notice.onclick = () => {
+			//window.open(notice.data.url); // 当用户点击通知时，在浏览器打开百度网站
+			//}
+		</script>
+	</body>
+
+</html>

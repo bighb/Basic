@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<button onclick="find(prompt('输入一段文字'))">回复</button>
+		<script type="text/javascript">
+			 var keword="黄";
+			 function find(input){
+			 	var index=-1;
+			 while(  (index=input.indexOf(keword,index+1))!=-1){
+			 	alert('在位置'+index+"发现敏感词")
+			 }
+			 }
+		</script>
+	</body>
+</html>

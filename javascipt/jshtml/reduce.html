@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+
+<body>
+	<script type="text/javascript">
+		//格式化数组对象中某个属性
+		let arr = [{
+			name: 'huangben1',
+			age: 21,
+			status: 1
+		},
+		{
+			name: 'huangben2',
+			age: 22,
+			status: 2
+		},
+		{
+			name: 'huangben3',
+			age: 23,
+			status: 10
+		}
+		]
+		//写法一
+		let arrData = arr.reduce(function (x, y) {
+			if (y.status > 1) {
+				return x + y.age
+			} else {
+				return x
+			}
+
+		}, 0)
+			//	console.log(arrData,num)
+		//写法二
+		let num = arr.reduce((x,y)=>{
+			console.log(x);
+			//console.log(y);
+			if(x.status){
+				return x.status+y.status
+			}else{
+				return x+y.status
+			}
+			
+			
+		})
+		console.log(num);
+		
+
+	</script>
+</body>
+
+</html>

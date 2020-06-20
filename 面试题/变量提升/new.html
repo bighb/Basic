@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Person(name,age,salary) {
+            this.name=name;
+            this.age=age;
+            this.salary=salary;
+        }
+        function foo(person) {
+            debugger
+            person.name="huangben";
+            person=new Person("张三",12,333);
+            console.log(person.name+"3");//张三
+            
+        }
+        var p=new Person("赵四",22,11111);
+        console.log(p.name+"1");//赵四
+        foo(p);
+        console.log(p.name+"2");//huangben
+        
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			//参数表格
+     let  tableData=[
+        {
+          id: 1,
+          children: [
+                {
+                  id: 11,
+                },
+              ]
+        },
+        {
+          id: 2,
+          children: [
+            {
+              id: 21,
+              children: [
+                {
+                  id: 211,
+                },
+                {
+                  id: 212,
+                }
+              ]
+            },
+            {
+              id: 22,
+            }
+          ]
+        },
+        {
+          id: 3,
+        }
+      ];
+			class Table {
+				constructor() {
+					this._data = [];
+					console.log("构造函数")
+					console.log(this._data)
+				}
+                set prop(value) {
+                       this._data=value;
+                 }
+				get prop() {
+					return this._data;
+				}
+				
+				find(id, data) {
+					let result = null;
+
+					for(let i = 0; i < data.length; i += 1) {
+						const item = data[i];
+
+						if(item.id === id) {
+							return item
+						} else if(item.children) {
+							result = this.find(id, item.children);
+						}
+					}
+
+					return result;
+				}
+				insert(id, data) {
+					const item = this.find(id, this._data);
+
+					if(item.children) {
+						item.children.push(data);
+					} else {
+						item.children = [data];
+					}
+				}
+			}
+
+			const t = new Table();
+                t.prop = tableData;
+                
+			t.insert(3, {
+				id: 10086,
+			});
+
+          console.log("这里")
+			console.log(t.prop)
+		</script>
+	</body>
+
+</html>

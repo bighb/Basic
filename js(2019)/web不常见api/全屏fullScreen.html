@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		.div_test{
+			 width: 100px;
+			 height: 100px;
+			 background: aqua;
+		}
+	</style>
+	<body>
+		<button onclick="launchFullScreen()">开启全屏</button>
+		<button onclick="exitFullScreen()">关闭全屏</button>
+		<div class="div_test" onClick="launchFullScreen()">
+			我是要全屏的div
+		</div>
+
+		<script type="text/javascript">
+			/**
+ * @method launchFullScreen 开启全屏
+ * @param {Object} elem = document.documentElement 作用的元素(全屏)
+ */
+// let div_item=document.getElementsByClassName("div_test")
+const launchFullScreen = (elem = document.getElementsByClassName("div_test")[0]) => {
+	console.log("全屏",elem)
+  if(elem.requestFullScreen) {
+    elem.requestFullScreen();
+  } else if(elem.mozRequestFullScreen) {
+    elem.mozRequestFullScreen();
+  } else if(elem.webkitRequestFullScreen) {
+    elem.webkitRequestFullScreen();
+  }
+}
+
+/**
+ * @method exitFullScreen 关闭全屏
+ */
+const exitFullScreen = () => {
+  if (document.exitFullscreen) {
+    document.exitFullscreen();
+  } else if (document.mozCancelFullScreen) {
+    document.mozCancelFullScreen();
+  } else if (document.webkitCancelFullScreen) {
+    document.webkitCancelFullScreen();
+  }
+}
+
+
+
+
+
+
+
+		</script>
+	</body>
+</html>

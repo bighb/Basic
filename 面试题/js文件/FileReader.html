@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<script src="jquery-3.2.1.min.js"></script>
+
+<body>
+    <img id="img" src="">
+    <input type="file" name="" id="file1">
+    <script>
+        function transferImgToBase64(files, cb) {
+            console.log(cb);
+            
+            // 先判断浏览器是否支持，一般都支持的啦，求个心安而已
+            if (typeof FileReader === 'undefined') {
+                alert('您的浏览器不支持图片上传，请升级您的浏览器');
+                return false;
+            }
+            // 实例化实例化`FileReader`对象
+            let reader = new FileReader();
+            // 读取内容
+            reader.readAsDataURL(files[0]);
+            // 通过onload事件拿到文件，并注册一个回调事件cb，这个回调事件就是拿来上传文件、预览文件等等的操作，回调的参数就是处理好的base64格式文件
+            reader.onload = e => {
+                cb ? cb(e.target.result) : null;
+            };
+        }
+        $('#file1').change(e => {
+            const files = e.target.files || e.dataTransfer.files;
+            const objectURL = window.URL.createObjectURL(files[0]);// 方式一
+            console.log(files);
+            
+            $('#img').attr('src', objectURL);// 方式一
+            setTimeout(function(){
+                console.log('清楚');
+                
+                window.URL.revokeObjectURL($('#img').src);
+            },2000)
+            // 方式二： 这里的res就是传入的base64数据，上面的e.target.result
+            // transferImgToBase64(files, res => {
+            //     console.log('转码后', res);
+            //     $('#img').attr('src', res);
+            // });
+        });
+    </script>
+</body>
+
+</html>

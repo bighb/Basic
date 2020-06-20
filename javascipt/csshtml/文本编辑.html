@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.editor{
+				text-indent: 2in;
+				color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="editor" contenteditable="true">
+			点击疯的疯
+		</div>
+		
+	</body>
+	 <script src="../js/jquery-1.11.0.js" type="text/javascript" charset="utf-8"></script>
+             <script>
+//           	let sheet=document.querySelectorAll(".editor");
+//           	console.log(sheet)
+//           	sheet[0].style=false
+window.onbeforeunload=function(){
+	return "dfd";
+}
+        console.log(window)
+            </script>
+</html>

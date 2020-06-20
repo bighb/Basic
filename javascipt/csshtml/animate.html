@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>图片播放Demo</title>
+
+<style> 
+     .animate{
+         width:100px;
+         height:100px;
+         background:red;
+         position:absolute;
+         animation: move .6s infinite alternate;
+     }
+     @keyframes move{
+         from{
+            transform: rotateY(180deg);
+         }
+         to{
+             transform: rotateY(360deg);
+         }
+     }
+</style>
+</head>
+<body>
+    <div class="animate"></div>
+</body>
+</html>

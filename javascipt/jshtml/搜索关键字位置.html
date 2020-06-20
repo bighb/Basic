@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text"  class="ipt"  value=""  placeholder="搜索关键字"/>
+		<button type="button" id="find">搜索</button>
+		       
+		         <div>
+		         	<p>
+		         		先按顺序执行同步任务，Promise新建后立即执行输出2，接着输出4，异步任务等同步任务执行完后执行，且同一次事件循环中，微任务永远在宏任务之前执行。这时候执行栈空了，执行事件队列，先取出微任务，输出3，最后取出一个宏任务，输出1。
+		         	</p>
+		         </div>
+	</body>
+	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$('#find').click(function(){
+				var key=$(".ipt").val();//获取关键字
+				var word=$('p').text().trim(); //获取段落
+				var index=-1;//为了让indexof从0位置开始找
+			while((index=word.indexOf(key,index+1))!=-1){
+				 //根据位置替换红文字
+				 var sonStr=word.slice(index,(index+key.length));//找到子字符串
+				 console.log(sonStr)
+		          //  $('p').replaceWith(sonStr,"<font color='red'>" + key + "</font>");
+				
+			}
+			   
+			})
+		})
+	</script>
+</html>

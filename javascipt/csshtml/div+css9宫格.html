@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			div{
+				width: 100px;
+				height: 100px;
+				float: left;
+				border-bottom: solid 1px red;
+			}
+			li{
+				overflow: hidden;
+			}
+	       ul{
+	       	padding-left: 20%;
+	       	padding-top: 30px;
+	       }
+	       li>div:nth-child(odd){
+	         border-left: solid red 1px;
+	         border-right: solid red 1px;
+	       }
+	       .son1>div{
+	       	    border-top: solid 1px red; 
+	       }
+		</style>
+	</head>
+	<body>
+	         <ul>
+	         	<li class="son1">
+	         		<div></div>
+	         		<div></div>
+	         		<div></div>
+	         	</li>
+	         	<li class="son2">
+	         		<div></div>
+	         		<div></div>
+	         		<div></div>
+	         	</li>
+	         	<li class="son3">
+	         		<div></div>
+	         		<div></div>
+	         		<div></div>
+	         	</li>
+	         </ul>
+	</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .box{
+        display: flex;
+        width: 1000px;
+        border: solid 1px red;
+        
+    }
+     .test{
+         flex:1;
+         flex-grow: 2;
+         display: flex;
+         justify-content: space-between;
+     }
+     span{
+         width: 100px;
+         display: inline-block;
+     }
+     .test:nth-child(odd) {
+       background: yellowgreen;
+   }
+   .test:nth-child(even) {
+     background: rgb(45, 69, 148);
+     }
+     select{
+         flex-grow: 1;
+     }
+     .half{
+        flex-grow: 1;
+     }
+</style>
+<body>
+    <div class="box">
+        <div class="test">
+            <span>tet</span>
+             <select name="" id=""></select>
+        </div>
+        <div class="test">
+            <span>tet</span>
+            <input type="date" name="" id="">
+        </div>
+        <div class="test">
+            <span>tet</span>
+            <input type="date" name="" id="">
+        </div>
+        <div class="test half">
+            <span>tet</span>
+            <input type="email" name="" id="">
+        </div>
+    </div>
+</body>
+</html>

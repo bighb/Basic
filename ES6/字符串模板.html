@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<div id="result">
+
+	</div>
+
+	<body>
+		<script type="text/javascript">
+			//	传统的 JavaScript 语言， 输出模板通常是这样写的。
+			var a = document.getElementById("result");
+			a.append(
+				'There are <b>' + '</b> ' +
+				'items in your basket, ' +
+				'<em>' +
+				'</em> are on sale!'
+			);
+			//	上面这种写法相当繁琐不方便， ES6 引入了模板字符串解决这个问题。
+
+			a.append(`  //反单引号 模板字符串中嵌入变量，需要将变量名写在${}之中。
+      There are <b></b> items
+      in your basket, <em>basket.onSale</em>
+     are on sale!
+                `);
+		</script>
+	</body>
+
+</html>

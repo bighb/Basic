@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*     var age=22
+            function callFun(params) {
+                return this.age
+            }
+          let num=  callFun.call({age:11})
+          console.log(num); */
+        var name = "windowsName";
+
+        var a = {
+            name: "Cherry",
+
+            func1: function () {
+  
+                setTimeout(function(){
+                    console.log(this.name+'111');
+                    
+                },100)
+            },
+
+            func2: function () {
+                setTimeout(() => {
+                    this.func1()
+                }, 100);
+            },
+            func3:  function (params) {
+                setTimeout(() => {
+                    console.log(this.name+'333');
+                    
+                }, 100);
+            }
+        };
+
+        a.func1()     // windowsName
+        a.func2()     //windowsName
+        a.func3();   //Cherry
+        a.func3.call({name:'call'})
+
+    </script>
+</body>
+
+</html>

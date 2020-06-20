@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var str="我事黄奔在明天去公司面试，你知道我会来吗？我就问问你";
+			var reg=/我|黄奔/g  //这里注意，查找就要带g 检测 reg.test()就要带^...$
+			var arr=null;
+			while( (arr=reg.exec(str))!=null){
+				console.log("在位置"+arr.index+"找到=>"+arr[0]);
+				console.log("下次从位置"+reg.lastIndex+'开始查找')  //reg.lastIndex是reg自带的，自动改变index+str.length;
+			}
+		</script>
+	</body>
+</html>

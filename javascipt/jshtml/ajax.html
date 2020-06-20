@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			 var xhr=null;
+			 if(window.XMLHttpRequest){
+			 	xhr=new XMLHttpRequest;
+			 }else{
+			 	xhr=new ActiveXObject("Microsoft.XMLHTTP");
+			 }
+			 xhr.open("GET",'data/ajax.json');
+			 xhr.send();
+			 xhr.onreadystatechange=function(data){
+			     if(xhr.readyState==4&xhr.status==200){
+			     	console.log(xhr.responseText)
+			     }else{
+			     	console.log("error")
+			     }
+			 }
+		</script>
+	</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		//	"use strict"  //严格模式this为 undifined  
+			 //普通模式 为宿主对象windows
+//			function a(){
+//				return this
+//			}
+//			console.log(a())
+          function a(){
+          	console.log("sss")
+          }
+         function b(){
+         	//console.log("ddd")
+         	a()
+         }
+         b(a())
+         console.log(a())
+		</script>
+	</body>
+</html>

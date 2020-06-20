@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			
+			//格式化数组对象中某个属性
+			let arr = [{
+					name: 'huangben1',
+					age: 21,
+					status: 1
+				},
+				{
+					name: 'huangben2',
+					age: 22,
+					status: 2
+				},
+				{
+					name: 'huangben3',
+					age: 23,
+					status: 3
+				}
+			]
+			let arrData=arr.map(e=>{
+				 e.status=  e.status == 1? '未开始' :'待定'
+				  return e
+			})
+			let arrData2=arr.map(e=>{
+				 
+				  return e.age
+			})
+			console.log(arrData)
+			console.log(arrData2)
+		</script>
+	</body>
+
+</html>
