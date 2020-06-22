@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>我是iframe2.html</title>
+    </head>
+    <body>
+        <input type="button" name="btn2" id="btn2" value="点击按钮控制demo2.html页面" />
+        <script>
+            window.onload = function(){
+                var oBtn2   = document.getElementById('btn2');
+                oBtn2.onclick = function() {
+                    //demo1.html页面中的js控制了iframe1.html页面的字体颜色
+                    var oDiv = window.parent.document.body.children[0];
+                    oDiv.style.color = 'red';
+                }
+            }
+        </script>
+    </body>
+</html>

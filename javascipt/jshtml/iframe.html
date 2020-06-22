@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>我是demo3.html</title>
+    </head>
+    <body>
+        <h1>动态加载iframe</h1>
+        <input type="button" name="btn3" id="btn3" value="点击创建iframe" />
+        <script>
+            window.onload = function(){
+                var oBtn3   = document.getElementById('btn3');
+                oBtn3.onclick = function() {
+                     
+                    var oIframe = document.createElement('iframe');
+                    oIframe.src = 'http://121.36.46.207:31107/';
+                    document.body.appendChild(oIframe);
+                     
+                    //oIframe就是指在demo3.html这个页面中的iframe标签所代表的DOM元素
+                    //oIframe.contentWindow是iframe2.html这个页面的window对象
+                     
+                     
+                    //别人说，IE下只能用oIframe.attachEvent('onload',function(){...}) 我试了下，IE下也可以用下面的
+                    oIframe.onload = function(){
+                        alert(888);
+                    };
+                     
+                    //如果iframe页面js中有window.onload，oIframe.contentWindow.onload是无效的（IE6-8下还是有效的），如果没有，则可以。当然尽量别用这么乱
+                    oIframe.contentWindow.onload = function(){
+                        alert(999);
+                    }
+                     
+                     
+ 
+                }
+            }
+        </script>
+         
+         
+    </body>
+</html>

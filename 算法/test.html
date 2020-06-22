@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const treeData = [
+  {
+    title: 'Node1',
+    id: '1',
+    key: '0-0',
+    children: [
+      {
+        title: 'Child Node1',
+        id: '2',
+        key: '0-0-0',
+      },
+    ],
+  },
+  {
+    title: 'Node2',
+    id: '3',
+    key: '0-1',
+    children: [
+      {
+        title: 'Child Node3',
+        id: '4',
+        key: '0-1-0',
+        disabled: true,
+      },
+      {
+        title: 'Child Node4',
+        id: '5',
+        key: '0-1-1',
+      },
+      {
+        title: 'Child Node5',
+        id: '6',
+        key: '0-1-2',
+        children:[
+          {
+            title: 'Child Node5',
+            id: '7',
+            key: '0-1-3',
+          }
+         
+        ]
+      },
+    ],
+  },
+];
+class Path {
+    constructor(tree) {
+      this.tree = tree;
+      this.paths = [];
+    }
+    
+    buildPaths(tree, parent = []) {
+      if (Array.isArray(tree)) {
+        tree.forEach(e => this.buildPaths(e, parent))
+      } else if (typeof tree == 'object') {
+        parent = parent.concat(tree.id)
+        this.paths.push(parent);
+        if (tree.children) {
+          this.buildPaths(tree.children, parent)
+        }
+      }
+    }
+    
+    search(key) {
+      this.buildPaths(this.tree);
+      return this.paths.find(path => {
+    
+       return path[path.length - 1] === key;
+      });
+    }
+  }
+  
+  const path = new Path(treeData);
+  
+  console.log(path.search('7'));
+    </script>
+</body>
+</html>
