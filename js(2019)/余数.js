@@ -4,6 +4,7 @@ for (let index = 0; index < array.length; index++) {
     const element = array[index];
      if(index % 3 ===0){
            console.log(element);
+           console.log(33);
            
      }
 }
