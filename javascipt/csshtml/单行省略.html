@@ -1,25 +1,63 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<title></title>
-	</head>
-	<style type="text/css">
-	span{
-		display: inline-block;
-		width: 100px;
-		height: 30px;
-		line-height: 30px;
-		border: solid 1px red;
+
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<style type="text/css">
+	.oneLine {
 		overflow: hidden;
 		text-overflow: ellipsis;
 		white-space: nowrap;
 	}
-	</style>
-	<body>
-		<div>
-			<span>我是一个即将要溢出得文字，你知道吗</span>
+
+	.box {
+		width: 300px;
+		height: 600px;
+		border: solid 1px red;
+	}
+
+	.list {
+		border-bottom: solid 1px rebeccapurple;
+		display: flex;
+	}
+
+	.left {
+		background: rosybrown;
+		width: 50%;
+	}
+
+	.right {
+		background: silver;
+		width: 50%;
+	}
+	.info{
+		display: flex;
+	}
+	.tip{
+		flex-shrink: 0;
+	}
+</style>
+
+<body>
+	<div class="box">
+		<div class="list">
+			<div class="left">
+				<div class="info">
+					<span class="tip">美国</span>
+					<span class="oneLine">发的范德萨发发的范德萨发的顺丰到付的顺丰到付</span>
+				</div>
+				<div class="oneLine">223432432422343243243243242343243222343243243243242343243232432423432432</div>
+			</div>
+			<div class="right">
+				<div class="oneLine">2019-12-23 23:23:32</div>
+				<div>认证通过</div>
+			</div>
 		</div>
-		
-	</body>
+
+	</div>
+
+</body>
+
 </html>
