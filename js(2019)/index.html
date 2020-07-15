@@ -1,10 +1,158 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8" />
-		<title></title>
-	</head>
-	<body>
+
+<head>
+	<meta charset="UTF-8">
+	<title>环图</title>
+</head>
+
+<body>
+	
+	   <div  id="container"></div>
+	   <script src="https://gw.alipayobjects.com/os/lib/antv/g2/4.0.10/dist/g2.min.js"></script>
+	   <script src="https://gw.alipayobjects.com/os/antv/pkg/_antv.data-set-0.11.1/dist/data-set.js"></script>
+	<script>
+
+		const data = [
+			{ item: '事例一', count: 40, percent: 0.4 },
+			{ item: '事例二', count: 21, percent: 0.21 },
+			{ item: '事例三', count: 17, percent: 0.17 },
+			{ item: '事例四', count: 13, percent: 0.13 },
+			{ item: '事例五1', count: 9, percent: 0.09 },
+			{ item: '事例五2', count: 9, percent: 0.09 },
+			{ item: '事例五3', count: 9, percent: 0.09 },
+			{ item: '事例五4', count: 9, percent: 0.09 },
+			{ item: '事例五5', count: 9, percent: 0.09 },
+			{ item: '事例五6', count: 9, percent: 0.09 },
+			{ item: '事例五7', count: 9, percent: 0.09 },
+			{ item: '事例五8', count: 9, percent: 0.09 },
+			{ item: '事例五9', count: 9, percent: 0.09 },
+			{ item: '事例五10', count: 9, percent: 0.09 },
+			{ item: '事例五11', count: 9, percent: 0.09 },
+			{ item: '事例五12', count: 9, percent: 0.09 },
+			{ item: '事例五13', count: 9, percent: 0.09 },
+			{ item: '事例五14', count: 9, percent: 0.09 },
+			{ item: '事例五15', count: 9, percent: 0.09 },
+			{ item: '事例五16', count: 9, percent: 0.09 },
+			{ item: '事例五17', count: 9, percent: 0.09 },
+			{ item: '事例五18', count: 9, percent: 0.09 },
+			{ item: '事例五19', count: 9, percent: 0.09 },
+			{ item: '事例五20', count: 9, percent: 0.09 },
+			{ item: '事例五21', count: 9, percent: 0.09 },
+			{ item: '事例五22', count: 9, percent: 0.09 },
+			{ item: '事例五23', count: 9, percent: 0.09 },
+			{ item: '事例五24', count: 9, percent: 0.09 },
+			{ item: '事例五25', count: 9, percent: 0.09 },
+
+		];
+		console.log(33);
 		
-	</body>
+		console.log(Chart);
+		
+		const chart = new Chart({
+			container: 'container',
+			autoFit: true,
+			height: 500,
+		});
+		console.log(chart);
+		
+		chart.data(data);
+		chart.scale('percent', {
+			formatter: (val) => {
+				val = val * 100 + '%';
+				return val;
+			},
+		});
+		chart.coordinate('theta', {
+			radius: 0.75,
+			innerRadius: 0.6,
+		});
+		chart.tooltip({
+			showTitle: false,
+			showMarkers: false,
+			itemTpl: '<li class="g2-tooltip-list-item"><span style="background-color:{color};" class="g2-tooltip-marker"></span>{name}: {value}</li>',
+		});
+		// 辅助文本
+		chart
+			.annotation()
+			.text({
+				position: ['50%', '50%'],
+				content: '主机',
+				style: {
+					fontSize: 14,
+					fill: '#8c8c8c',
+					textAlign: 'center',
+				},
+				offsetY: -20,
+			})
+			.text({
+				position: ['50%', '50%'],
+				content: '200',
+				style: {
+					fontSize: 20,
+					fill: '#8c8c8c',
+					textAlign: 'center',
+				},
+				offsetX: -10,
+				offsetY: 20,
+			})
+			.text({
+				position: ['50%', '50%'],
+				content: '台',
+				style: {
+					fontSize: 14,
+					fill: '#8c8c8c',
+					textAlign: 'center',
+				},
+				offsetY: 20,
+				offsetX: 20,
+			});
+		chart.legend({
+			// marker: 'square',
+			position: 'right',
+			slidable: true,
+			height: 500,
+			width: 20,
+			// textStyle: { fill: '#a3a9c1' },
+			// offsetX: 20,
+			itemFormatter(val) {
+				let labe = data.find(v => v.item == val).count
+				return `${val} ${parseInt(labe / 5 * 100)}%` // val 为每个图例项的文本值}else{
+			},
+			useHtml: true,//使用Html绘制图例
+			flipPage: false,//图例超出容器是否滚动
+			containerTpl: '<div class="g2-legend" style="position:absolute;top:300px;right:300px;width:auto;">'
+				+ '<h4 class="g2-legend-title"></h4>'
+				+ '<ul class="g2-legend-list" style="list-style-type:none;margin:0;padding:0;"></ul>'
+				+ '</div>',//图例容器
+			itemTpl: '<li class="g2-legend-list-item item-{index} {checked}" style="margin-right: 24px" data-color="{originColor}" data-value="{originValue}">' +
+				'<i class="g2-legend-marker" style="background-color:{color};"></i>' +
+				'<span class="g2-legend-text">{value}</span></li>'//图例
+		})
+		chart
+			.interval()
+			.adjust('stack')
+			.position('percent')
+			.color('item')
+			.label('percent', (percent) => {
+				return {
+					content: (data) => {
+						return `${data.item}: ${percent * 100}%`;
+					},
+				};
+			})
+			.tooltip('item*percent', (item, percent) => {
+				percent = percent * 100 + '%';
+				return {
+					name: item,
+					value: percent,
+				};
+			});
+
+		chart.interaction('element-active');
+
+		chart.render();
+	</script>
+</body>
+
 </html>
