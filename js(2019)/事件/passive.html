@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    ul{
+        height: 200px;
+        border: solid 1px red;
+        width: 100px;
+        overflow: hidden;
+        overflow-y: scroll;
+    }
+</style>
+<body>
+    <div>
+        <ul>
+            <li>滚动内容</li>
+            <li>滚动内容</li>
+            <li>滚动内容</li>
+            <li>滚动内容</li>
+            <li>滚动内容</li>
+            <li>滚动内容</li>
+            <li>滚动内容</li>
+            <li>滚动内容</li>
+            <li>滚动内容</li>
+            <li>滚动内容</li>
+            <li>滚动内容</li>
+            <li>滚动内容</li>
+            <li>滚动内容</li>
+            <li>滚动内容</li>
+            <li>滚动内容</li>
+            <li>滚动内容</li>
+            <li>滚动内容</li>
+            <li>滚动内容</li>
+            <li>滚动内容</li>
+            <li>滚动内容</li>
+            <li>滚动内容</li>
+            <li>滚动内容</li>
+            <li>滚动内容</li>
+            <li>滚动内容</li>
+            <li>滚动内容</li>
+            <li>滚动内容</li>
+            <li>滚动内容</li>
+            <li>滚动内容</li>
+            <li>滚动内容</li>
+            <li>滚动内容</li>
+            <li>滚动内容</li>
+            <li>滚动内容</li>
+            <li>滚动内容</li>
+            <li>滚动内容</li>
+            <li>滚动内容</li>
+            <li>滚动内容</li>
+            <li>滚动内容</li>
+            <li>滚动内容</li>
+            <li>滚动内容</li>
+            <li>滚动内容</li>
+        </ul>
+        <ul id="test">
+            <li>滚动内容</li>
+            <li>滚动内容</li>
+            <li>滚动内容</li>
+            <li>滚动内容</li>
+            <li>滚动内容</li>
+            <li>滚动内容</li>
+            <li>滚动内容</li>
+            <li>滚动内容</li>
+            <li>滚动内容</li>
+            <li>滚动内容</li>
+            <li>滚动内容</li>
+            <li>滚动内容</li>
+            <li>滚动内容</li>
+            <li>滚动内容</li>
+            <li>滚动内容</li>
+            <li>滚动内容</li>
+            <li>滚动内容</li>
+            <li>滚动内容</li>
+            <li>滚动内容</li>
+            <li>滚动内容</li>
+            <li>滚动内容</li>
+            <li>滚动内容</li>
+            <li>滚动内容</li>
+            <li>滚动内容</li>
+            <li>滚动内容</li>
+            <li>滚动内容</li>
+            <li>滚动内容</li>
+            <li>滚动内容</li>
+            <li>滚动内容</li>
+            <li>滚动内容</li>
+            <li>滚动内容</li>
+            <li>滚动内容</li>
+            <li>滚动内容</li>
+            <li>滚动内容</li>
+            <li>滚动内容</li>
+            <li>滚动内容</li>
+            <li>滚动内容</li>
+            <li>滚动内容</li>
+            <li>滚动内容</li>
+            <li>滚动内容</li>
+        </ul>
+    </div>
+    <script>
+        var elem = document.getElementById('test');
+        console.log('elem: ', elem);
+        elem.addEventListener('touchmove', function listener(e) {
+            console.log(222);
+            e.preventDefault(); //阻止浏览器默认行为
+        }, { passive: false });  //火狐，chrome浏览器默认passive：true,这里passive控制了是否可以滚动
+    </script>
+</body>
+
+</html>
