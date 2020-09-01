@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="UTF-8">
-		<title></title>
-	</head>
-	<body>
-		 <script type="text/javascript">
+
 		 	//类 老的 类和构造函数同一种写法
 		 /*	function User(name,pass){
 		 		this.name=name;
@@ -45,7 +38,3 @@
 		 	u2.showPass();
 		 	alert(u2.name)
 			 console.log(u2);
-			 
-		 </script>
-	</body>
-</html>

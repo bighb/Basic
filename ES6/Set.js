@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="UTF-8">
-		<title>数组去重</title>
-	</head>
-	<body>
-		<script type="text/javascript">
+
 //			const s=new Set();
 //			console.log(s)
 		let arr=[1,3,4,4,5,2,2];
@@ -15,7 +8,3 @@
 //			console.log(s)
     
 	const s=new Set(arr);
-	   
-		</script>
-	</body>
-</html>

@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-<html>
 
-<head>
-	<meta charset="UTF-8">
-	<title></title>
-</head>
-
-<body>
-	<script type="text/javascript">
 		/*	let show=function(a){
 				return a*2;
 			}
@@ -53,7 +44,3 @@
 		obj1.print()()
 		obj1.print().call(obj2)
 		obj1.print.call(obj2)()
-	</script>
-</body>
-
-</html>

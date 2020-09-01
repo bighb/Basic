@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-<html>
 
-	<head>
-		<meta charset="UTF-8">
-		<title></title>
-	</head>
-
-	<body>
-		<script type="text/javascript">
 //			for(var i = 1; i <= 5; i++) {
 //				
 //				setTimeout(function timer() {
@@ -19,8 +10,3 @@
         console.log(i);
     }, 1000); 
 }
-
-		</script>
-	</body>
-
-</html>

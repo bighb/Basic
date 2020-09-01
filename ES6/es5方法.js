@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8" />
-		<title></title>
-	</head>
-	<body>
-	 <script type="text/javascript">
+
 	 	var arr=[1,3,4,5];
 	 //	alert(arr.splice(1,2)); 删除指定位置，指定数量，的数组，
 	 //	alert(arr)
@@ -36,7 +29,3 @@
 		else return x*arguments.callee(x-1);
 	}
 	alert(foo(5))*/
-	 </script>
-		
-	</body>
-</html>

@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="UTF-8">
-		<title></title>
-	</head>
-	<body>
-		<script type="text/javascript">
+
 			let arr=[12,3,5];
 //		for(let value of arr.values()){
 //			alert(value)
@@ -16,7 +9,3 @@
 //     }
            
 		console.log(arr)
-		</script>
-		
-	</body>
-</html>

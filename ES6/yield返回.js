@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="UTF-8">
-		<title>generator-生成器</title>
-	</head>
-	<body>
-		<script type="text/javascript">
+
 			function * show(num1,num2){ //generator不能写成箭头函数
 				alert('a');
 				
@@ -19,6 +12,3 @@
     let res2=gen.next();
     console.log(res2)//{value: undefined, done: true} 
                    //{value: 44, done: true} 最后一步 根据return决定
-		</script>
-	</body>
-</html>

@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <script>
+
         class Point {
   constructor(x, y) {
     this.x = x;
@@ -20,7 +12,3 @@
 let strPoint=new Point('huangben',22).toString()
   // let str= strPoint.toString()
    console.log(strPoint);
-   
-    </script>
-</body>
-</html>

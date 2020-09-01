@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="UTF-8">
-		<title></title>
-	</head>
-	<body>
-		 <script type="text/javascript">
+
 			//老版继承的方法
 		 	function User(name,pass){
 		 		this.name=name;
@@ -75,7 +68,3 @@
 		 	v1.showPass();
 		 	v1.showlevel();
 			 */
-		 
-		 </script>
-	</body>
-</html>
