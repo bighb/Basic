@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="test">点击</div>
+    <script>
+        const bc = new BroadcastChannel('dfdff');
+        let btn = document.getElementById("test")
+        btn.addEventListener('click', function () {
+            bc.postMessage('hello')
+        })
+        bc.onmessage = function (e) {
+            console.log('e:---- ', e);
+            alert(3333)
+        };
+
+
+    </script>
+</body>
+
+</html>
