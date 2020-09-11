@@ -1,15 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>插入排序</title>
-</head>
-
-<body>
-    <script>
         //核心思想
         let list = [3, 2, 4, 1];
         function insertSort(array) {
@@ -39,7 +28,3 @@
         }
         list = insertSort(list);
     console.log(list);
-    </script>
-</body>
-
-</html>

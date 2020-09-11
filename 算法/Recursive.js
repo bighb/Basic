@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>递归</title>
-</head>
-<body>
-     <script>
+
          //递归思想：自己调用自己
          function sum(n) {
              if(n >0){
@@ -19,7 +10,3 @@
              }
          }
          console.log(sum(100));
-         
-     </script>
-</body>
-</html>

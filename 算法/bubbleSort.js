@@ -1,15 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>冒泡排序</title>
-</head>
-
-<body>
-  <script>
 
     //核心思想，取一个值，一次和下一个比较，如果比下一个大，交换位置，第一轮取出最大值，后面每一轮取出该轮的最大的值
     let list = [22, 11, 99, 4];
@@ -33,8 +22,3 @@
     }
     list = bubbleSort(list);
     console.log(list);
-
-  </script>
-</body>
-
-</html>
