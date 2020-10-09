@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件流</title>
+</head>
+<style>
+    div{
+        width: 200px;
+        height: 30px;
+        background: rebeccapurple;
+    }
+</style>
+<body>
+    
+    <div >点击</div>
+    <script>
+         /*
+           第三个参数 false：冒泡，true:捕获， 事件捕获指的是执行的事件顺序不同，而不是捕捉点击事件，点击事件必须点击到所有DOM
+         */
+         
+        let btn=document.querySelector("div")
+        console.log('btn: ', btn);
+        let fun=function(event){
+            // event.stopPropagation()
+            console.log("点击了");
+        }
+       btn.addEventListener('click',fun,false)
+        let body_btn=  document.body
+        console.log('body_btn: ', body_btn);
+       body_btn.addEventListener('click',event => {
+          
+            console.log('event: ', event);
+        },false)
+    </script>
+</body>
+</html>

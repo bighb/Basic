@@ -23,6 +23,9 @@ function howMany(selectObject) {
   }
   return numberSelected;
 }
+setTimeout(() => {
+  console.log(this);
+}, 333);
 
 var btn = document.getElementById("btn");
 btn.addEventListener("click", function(){

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件捕获</title>
+</head>
+<body>
+    <div id="s1">s1
+        <div id="s2">s2</div>
+    </div>
+    <script>
+        s1.addEventListener("click",function(e){
+            console.log("s1 捕获事件");
+        },false);
+        s2.addEventListener("click",function(e){
+            console.log("s2 捕获事件");
+        },false);
+     
+    </script>
+</body>
+</html>

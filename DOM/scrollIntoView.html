@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    li{
+        height: 300px;
+        width: 200px;
+        border: saddlebrown solid 1px;
+    }
+</style>
+<body>
+    <div>
+        <ul>
+            <li>我是1</li>
+            <li>我是2</li>
+            <li class="test3">我是3</li>
+            <li>我是4</li>
+        </ul>
+    </div>
+    <script>
+       let ele=  document.getElementsByClassName('test3')
+       console.log('ele: ', ele);
+       ele[0].addEventListener("click",()=>{
+        ele[0].scrollIntoView() // true 或者不传，滚动到顶部持平，false底部持平
+    })
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <p>我是中级阶段</p>
+        <ul>
+            <li></li>
+        </ul>
+        <p>
+            <span></span>
+        </p>
+    </div>
+    <script>
+        let child=document.getElementsByTagName("li")[0]
+        let p=document.getElementsByTagName("ul")[0]
+         p.title='测试title'
+        console.log(p.contains(child));
+        console.log('child: ', child.tagName);
+    </script>
+</body>
+</html>

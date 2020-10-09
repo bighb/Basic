@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</body>
+<script>
+     let listNode=document.getElementsByTagName('li')
+     for (let index = 0; index < listNode.length; index++) {
+         const element = listNode[index];
+         element.addEventListener('click',(e)=>{
+             
+             console.log('this: ', this);
+             console.log('e: ', e);
+               e.target.textContent="我是新加的内容"
+               e.target.innerHTML=`<h1>我是标题</h1>`
+         })
+         element.addEventListener('dblclick',function(){
+            console.log('this: ', this);
+
+         })
+     }
+</script>
+</html>

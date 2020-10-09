@@ -1,6 +1,8 @@
-var step;
-for (step = 0; step < 5; step++) {
+
+for ( var step = 0; step < 5; step++) {
+  console.log('step: ', step);
   // Runs 5 times, with values of step 0 through 4.
   console.log('Walking east one step');
 }
 
+console.log('step: ', step);  // 

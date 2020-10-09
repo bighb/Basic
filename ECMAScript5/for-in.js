@@ -14,8 +14,8 @@ Array.prototype.getList=4
 console.log('arr: ', arr);
 for (const key in arr) {
     if (arr.hasOwnProperty(key)) {
-        const element = arr[key];
-        console.log('element: ', element);
+        const element = arr[key]; //
+        console.log('element: ', element); // 
         
     }
 }
