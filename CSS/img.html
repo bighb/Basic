@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .box{
+        width: 200px;
+        height: 300px;
+    }
+    .box > img {
+    width: 100%; height: 100%; background-color: #cd0000;
+    /* object-fit 属性不同的图片比例方式，默认fill */
+    object-fit: contain; 
+}
+
+</style>
+<body>
+    <div class="box">
+        <img src="../img/下载.png" alt="我是图片alt" >
+    </div>
+</body>
+</html>
