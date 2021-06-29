@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class Point {
+            constructor(x, y) {
+                this.x = x;
+                this.y = y;
+            }
+
+            static staticSay() {
+                return "我是静态方法";
+            }
+            say() {
+                return "我是实例方法";
+            }
+            static info = "我是静态属性";
+        }
+        let strPoint = new Point("huangben", 22);
+        console.log('strPoint: ', strPoint);
+        console.log('Point: ', Point);
+        console.log(Point.staticSay());
+        console.log(strPoint.say());
+        console.log(Point.info);
+
+    </script>
+
+</body>
+
+</html>
