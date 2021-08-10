@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spinners</title>
+</head>
+<style>
+    html {}
+
+    body {
+        background-color: white
+    }
+
+    .main {
+        background-color: rgb(165, 206, 207);
+    }
+
+    .spinners::before {
+        position: absolute;
+        content: "";
+        top: 50%;
+        left: 50%;
+        margin-left: -30px;
+        margin-top: -30px;
+        width: 60px;
+        height: 60px;
+        background-color: transparent;
+        border-radius: 50%;
+        border-top: 2px solid coral;
+        border-right: 2px solid transparent;
+        animation-name: spinners;
+        animation-iteration-count: infinite;
+        animation-duration: 0.7s;
+        animation-timing-function: linear;
+    }
+
+    @keyframes spinners {
+
+        to {
+            transform: rotate(360deg)
+        }
+    }
+</style>
+
+<body>
+    <div class="main spinners">
+        <p>我现在准备自定义一个loading</p>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #box {
+
+        width: 200px;
+        height: 100px;
+        background-color: red;
+        transition: transform 4s;
+        /* transition-timing-function: steps(4, start); */
+    }
+
+    #box:hover {
+        /* width: 200px;
+        background-color: blue; */
+        transform: skew(-30deg, 0)
+            /* transform: skewX(30deg) */
+    }
+
+    img {
+        width: 400px;
+        height: 400px;
+        margin-top: 300px;
+        margin-left: 300px;
+        /* transform: rotateY(180deg); */
+        transform: perspective(500px) rotateY(40deg)
+    }
+</style>
+
+<body>
+    <div id="box"></div>
+    <img src="./avatar.jpeg" alt="" srcset="">
+</body>
+
+</html>

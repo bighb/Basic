@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动画移动</title>
+</head>
+<style>
+    body {
+        background-color: black;
+    }
+
+    /* 
+     * animation-iteration-count: 当前逗号隔开多值得时候，当前值一次匹对animation-name中多值得对映
+     * animation-fill-mode： 设置CSS动画在执行之前和之后如何将样式应用于其目标。
+     */
+    .box {
+        width: 200px;
+        height: 200px;
+        background-color: white;
+        border-radius: 50%;
+        position: relative;
+        animation-name: loop_to, background_change;
+        animation-duration: 4s;
+        animation-iteration-count: 1;
+        animation-fill-mode: forwards;
+    }
+
+    @keyframes loop_to {
+        0% {
+            top: 0;
+            left: 0;
+        }
+
+        25% {
+            top: 0;
+            left: 300px;
+        }
+
+        50% {
+            top: 300px;
+            left: 300px;
+        }
+
+        75% {
+            top: 300px;
+            left: 0;
+        }
+
+        100% {
+            top: 0;
+            left: 0;
+        }
+    }
+
+    @keyframes background_change {
+        from {
+            background-color: aquamarine;
+        }
+
+        to {
+            background-color: rebeccapurple;
+        }
+    }
+</style>
+
+<body>
+    <div class="box"></div>
+</body>
+
+</html>
