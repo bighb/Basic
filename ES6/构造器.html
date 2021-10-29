@@ -24,13 +24,37 @@
             }
             static info = "我是静态属性";
         }
-        let strPoint = new Point("huangben", 22);
-        console.log('strPoint: ', strPoint);
-        console.log('Point: ', Point);
-        console.log(Point.staticSay());
-        console.log(strPoint.say());
-        console.log(Point.info);
+        class Name extends Point {
+            constructor(x, y) {
+                super(x, y)
+            }
+        }
+        // let strPoint = new Point("huangben", 22);
+        // console.log('strPoint: ', strPoint);
+        // console.log('Point: ', Point);
+        // console.log(Point.staticSay());
+        // console.log(strPoint.say());
+        // console.log(Point.info);
+        let user = new Name(1, 2)
+        console.log('user: ', Name.staticSay());
+        class A {
+            constructor(a, b) {
+                this.a = a;
+                this.b = b;
+            }
+            static hello() {
+                console.log('hello world');
+            }
+        }
 
+        class B extends A {
+            constructor(...arg) {
+                super(...arg)
+            }
+        }
+        let test = new B(2, 3)
+        console.log('test: ', test);
+        B.hello()  // hello world
     </script>
 
 </body>
