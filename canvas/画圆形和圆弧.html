@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>canvas基础学习</title>
+</head>
+
+<body>
+    <canvas id="canvas" width="600px" height="600px"></canvas>
+    <script>
+        /** @type {HTMLCanvasElement} */
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        ctx.strokeRect(0, 0, 600, 600);  //填充矩形
+        // 开始
+        ctx.fillStyle = "rgb(0, 0, 255)";
+        ctx.beginPath();
+        ctx.arc(230, 90, 50, 0, Math.PI * 2, false); // 画一个圆
+        ctx.closePath();
+        ctx.fill();
+        
+        ctx.beginPath();
+        ctx.arc(333, 333, 50, 0, Math.PI, false); // 画一个圆
+        ctx.stroke();
+    </script>
+</body>
+
+</html>

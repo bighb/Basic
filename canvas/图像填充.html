@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>canvas基础学习</title>
+</head>
+
+<body>
+    <canvas id="canvas" width="600px" height="600px"></canvas>
+    <script>
+        /** @type {HTMLCanvasElement} */
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        ctx.fillStyle = "yellow"
+        ctx.fillRect(0, 0, 600, 600);  //描边矩形
+        // 开始
+        // 使用模式进行填充
+        var patternImage = new Image();
+        // 确保图像被加载
+        patternImage.onload = function () {
+            // 创建模式对象
+            var pattern = ctx.createPattern(patternImage, 'repeat');
+            // 设置填充样式
+            ctx.fillStyle = pattern;
+
+            ctx.fillRect(20, 20, 280, 100);
+            ctx.strokeRect(20, 20, 280, 100);
+        }
+        patternImage.src = 'https://www.md86.net/resource/upload/20200824/5f43881577a9c6734.png';
+
+    </script>
+</body>
+
+</html>

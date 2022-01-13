@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>canvas基础学习</title>
+</head>
+
+<body>
+    <canvas id="canvas" width="600px" height="600px"></canvas>
+    <script>
+        /** @type {HTMLCanvasElement} */
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        ctx.strokeRect(0, 0, 600, 600);  //填充矩形
+        // 开始
+
+        var imageObj = new Image();
+
+        imageObj.onload = function () {
+            ctx.drawImage(imageObj, 50, 50,200,100);
+        };
+        imageObj.src = 'https://www.md86.net/resource/upload/20200827/5f477d1b6b85d118.jpg';
+    </script>
+</body>
+
+</html>

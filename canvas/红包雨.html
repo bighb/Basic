@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+ <style>
+     .canvas-gift{
+         background-color: rebeccapurple;
+         height: 600px;
+         width: 100%;
+     }
+ </style>
+<body>
+    <div id="app" class="canvas canvas-gift">
+        <canvas ref="canvasGift" width="600px" height="600px" ></canvas>
+    </div>
+
+    <script>
+
+         function loadImage(url) {
+            return new Promise((resolve, reject) => {
+                let img = new Image()
+                img.src = url
+                img.onload = () => {
+                    resolve(img)
+                }
+                img.onerror = () => {
+                    reject(new Error('load image error!'))
+                }
+            })
+        }
+        // 获取一定范围内的随机数，保留2位小数
+         function getRandom(min, max) {
+            if (min > max) {
+                [min, max] = [max, min]
+            }
+            const random = Math.random() * (max - min) + min
+            return Number(random.toFixed(2))
+        }
+
+        var app = new Vue({
+            el: '#app',
+            data() {
+                return {
+                    canvas: null,
+                    ctx: null,
+                    sum: 15,
+                    images: [],
+                    img: {  // 红包图片的地址，宽度和高度
+                        url: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEYAAABWCAYAAABy+OAfAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAARqADAAQAAAABAAAAVgAAAAAtDbWgAAAQo0lEQVR4Ae2cS6il2VXH93ncW6m63VXdXUlMh6STGETQNhORDITYRlEDSkgydCBk0AMHQshQUAeZBBwGB6KYeSDQA0VEpUVwogOxE2iI0koedIfqqtSju+o+zvf5//3XWvt899xb1ZX4uufgrj5n7732Wnuv//9be32P892etY3y5qd+8+owv/+z82FxvY3jbGM4uyvVi42h82QbKr17nu55sm6w0ThP9zzZhlnvpu58HGbD/I2n33fwT7OvfvVBH1ajAx9ffHHv1rdv/MFqbF8UIZfayKiGRzWoq5zqW6nroIXE31tkP2vj3TZf/O71v/jaV2azmSEY8fgbL1558+jGy+M4/pxxJSFSCqCQAYdGPoqnqZwhDVjH1r1/Wu/i2wvGS9f/8uufgZw5UG4cvvklMRCkIEiQIirbZuSMHOAu0putg++MXjJ6Rn7R7AXj02/+2md/G0yz27/+uZ84PhpfHds4N/weHESFo8rYAU4/KRJIrD3U27tgL0R3r19bvn9+fDR8SsjmADXWKXJHglQZc/SEDn2Cxbxke1fshfbJW3dWvzCfjbPnwBwgFRPZjlpRQkPF45MaMWPIQzca1Y56O+2bOJmP47BPHBh+cCCElPVGMnj1XQ8oRRu6grjdsh9n4yUnX/IHoJ0MdagjEjKdEhkmIkiILZRt+FPZNfumy5ylkUGGG5ATUGubuJfkhMqEFPYLZdfsFS6OGLA5YgKjgXrbpJxxijkrMtSfNHfLXhEzh5nIE1GbECJAwWAicjxIWetI3M9Mu2bf2hAR42wiJjKruPaWYgtthMWULMhhD+6aPRtpOQwcehAm5Em0kEGKLEKo+pF/pF+6ZnF37NuoiKkk48jI6KgEHKQ4bKYUJYXQ1OmMyNoRe/ZRPyvV1jFUAwzghT6ihJ7kBMdkmMjZKXvtogoYbwuTkEfd7fpKLqoLEWdKyaqeKmyhfRBjMD2bBEkFsOoCmrrVdb1r9gKlrcThzERaaLPvHZNt75/Mr30nFWk7aJ8RA+xEDTkJ2FVGgwnMdiXq9fOUHbMXBX0rxf0QpMBMAa1cMr3GSZkqE4SyCNs1ez+HYSdACJCrXQLHUZGQOiiiV2NlszP24mH+oA3vZocUyGqva+Dm+KRmvE7hpWtyc66SVVR5/i2xfzAO75/fH4bn39aVnuGDppe40qULqNoq4yOfx2y//V09czgaVj/pHHNPN00nIuWhz2MY0z9HiFjq7SSRPuRtu/2RDj9BAsJl5Yo746o9pUe/i1nlY8iI4ojp0fROz2PCqrYZM2yD/bHw3ZnpHsmEjKohw97P2l0NrLirdIQ4/XZyAqAgdoJONa3XCdgy+xNFyd350Bb6nQQuFuN8nC+EdKmzNgJiBHJQBH8cewjI6FG9brN1Khqgba2HzrbYryAFHMK70C/ScKHMortrscSvkmyhIEc/rIg9dhoZGZC9JBExlHJVEBiE0aLPnAgvtv2xSWHbiBQ9Z8BlJYpGNlmOq1WbLYKUwYBmImVst9tJOxgX7ZIRAjLOUoDuJFRkSId/LiXDRJ9T8uxfBPtD+XlfATATC/i41Ad//RoDD8OBs5AQ1kg8IrGRiGDwLXWOdXo+UB6amVFMI0ICdrXhLbeb5gkuixLCBiP6Z+2XH5YTH5btVS2stYbbYzv513kbXscryqPtQ+fx18dP0sWxDPdECrQs8I2J9Fl5qwyKmFw7zkUMalQG5BmgHGqbnci5J9SHVTuKjhYwXtsLWA55do1ZjzGK1ZM4rPZn7dIvtnbpV5Twniaf6RBxRPRxe1i14Y1Ze/Dn72rH/3jprP2PuD44uDTBO0ipgKCeyWd5QQuiRkcMvlN8qqIhS0JM7iH1VHfk9L6MDnKSmALlLKxGMSnR7N/Ml535+/Qb6O9o1mc3CBEZOl6dnPl7h3b5t+63vZ9ftPt/cp3E16czifixlthnd89Zf1AkviVQx5rCESJFooQZOdh1M6xfH5M29CgSeBEA6GNj1TDJhU6FGxdAN+X8A3OOna173R1FXg5WLdHiA61d/T3NV6SIDCJkHE40KlLo0y6Z6uWPP2hXvvi9NrsGcSqeL1d6h/XZNvd1QG9p7hNOMDIHy1IHHUL4EAxES5+apuLBN5EhjaPKkrCFAcQw2R5tfSBpoVHYvy2ndZ8lPzULRpocR+y4/U7nZYNsdqW1J74gJy7LJsHjwUikaC5IsUfMlx/G0J0/fdguf/67YjYA5Mws6rk319dPrO1tjd6erdp95ROfcdN/sBiHJnFu0RTMR0Cs5w0OJFaJNWMhgOgDQRDBRMUwk+1JPmiWtwTslj73BIRNF0UDEGSnqWjP2uVP6/tpIoToSEKKFNk7clYas0zZwFHErKE7f+7ttvfxm56rDkDfTAY1I+baXenf9EGDcPyetz2dWaiNQf6Dy7b4Zv8kwE2K++RTFdjyVw0ilCkTyK1kkrCDKIJeAakJOLVxT3ksHQiCsKUYu5SORHrWTAdKtJ8EJBEAOUrsct7RRg0Zsvdq6nPBIKE+6AAw+vu//P128g+8GihVfYgMabQjjbPNT+SP/pOPsUUcEerXDvCZ1xoYM4n0RZTn8lfIkJsYH4FUoIrpsQ1SQoYjnM4lU23SxMwwV8KS3yy60tiJ+m9LsJDLe9K6JPmVj8luTjRkpEC3wAQhAA9i3Jd8SDJmSUjIpfOEbD50px2+dqCDoQOi9VYih7yBjz1naAyZCcm6owKTdOGlkm7glwYyFFVHxLhjTRsAUj1dFgs4IcGQvvQuDbMBS33lG60sTrytkA1Kao4S2a208rGcPpTt/kfXR90Wjpogg2iYRoVJSmIG6UX0pK7IPvrg3Xbvtctenx/F9rWmFlWfgwMZRAv9qGlBkJXkP3oUSIGgKiZHHQhDf8mkhGRwHAsYHHJPryEW0qQlJ0QH2WDF/QUj85nuuvwPKHENhP1C7eW13BZsmYwO01v9JKIiBvIqShxZGid6IHDvyUNfg2hp3PK2oc1BdOTQkR+M4ZnPOPivf+GxpeGrAFge4WMN7DjIGTF0ZQZSlXkeeaTQut5SuqYhvFVwAjkmSx26gbYMmGMhkiIdS0ft2UqBb/AROesImeaQGKuIKgKdrHNLIdNJxsTYN60OMEhZk4HLRFGQ0/2XCvKKjCIEBESPsYBBH7CZmJgUVRhkzmQIxZKpJtMSrh7VWOnLQEcuXZMQ6hyqYdLaDxQfbAuOep5tenRAWI+QjCyTGG22Gp9Bdqw8u7PvtcyFJPFPU7hFvfbfWNTvPst/uW983ffUrz41EePtZyI6F1PAWi7lZSi7iUxuJduwhU6R5DODQoiEuPqWaBPYOlUbrOnLCNrYUhVdtZ2iH6QO/3HNc+LXXPMngO6Tj7h8ggz79BD/NzGjG+4HKcoxIkL0OzacLyKsOBIOM+BOIof90uUxE88upAKhpqa3S+/km8o/D5R39tdETLdTRYVlkFQRVHVG0HhDrwt+70mNR7izPL5N168D9cP4jw2pQNMaQ0ZMADcoDxbArJGpxLibBd9OOU6kU/ZQQ47igLnG5HDWjv7qivAranp0TLcK8rwVMAkQqE/Xjf7R33zEDhANzM9a63yi3n+D/yZa8ypr4qBamjQoYG21UkbPJQlahyBuqdiZqB9mzxE5/OuDtvoOAQpIrQkRJoqrXMkcHUmOSdJx01VyEXny6jNteOVZVgzf8vA8zvphE949nv8QMykJVT6uIfaFU+9cnUeNFXF6APLgj9/ThpvadgAnx4gkTtvr6KAdn4ggTvu6x/+uLui+9jGv8iOv/ygfz4z5VTORAA8GEIRwhDcJmY67nZN1vcewH27qEcIffkDJ+LIjgeip7RWn5UjQ6wjSXfE/v7cd/unHtR3jFOxlWatKEf8Y63e/38GeeFlf+U4WYllyRmyuJKlkOSlHzj++qeH249rfEzl/9FxbPn+nLT/xelvoEj+2UWwnR4weow3/9lQ7/rsPteHfn2Elz26f/qvrP4Y9pzg/qPIZxVGi9RNlZRwelHsuyb0/cbHaqq0uhQqyx7U/eeVqO/nG1TY/0MXfs2+1xdUjpRytdXe/Dd/RmecwLrH+p9Y3lvSfMxL+J/+ul2xxMg3gGeNDqTrI0LHK6HU06QviOII1mclLO+t4FuaN3sPsx3t7bfzWU3bD67KwTP631j/Pf/zwM9/KwPaprg7TQaisJuz16wTJ43dsgaCtycqeiXW5E6Rtg325Ss2JR08I8pYASWweSAKTkRlcyL2/kVeBJLUhxCXtbYsAZrbNPjHhftx+lSBRUkEH7NEOfEnEhBA1T40VS9tuz772LpoCBxx9f/RVucGxMSWCNkqpSy5xdwfsweTnMYD2pTUSikAKn4AqdyTgyjQRJVAgDZRMB6QkS4i2zd4YExP+q3A+UiUhiAFEDUyDVouwcPu0HB2rpv7O2AfYTL6Ay33h426w4qdqNdfkrOU2ga+J3m7YZ46ZAqu2AUJIls2+9RxJUpgQU+1N/c3+Rbfn99fcLkLpwBEEATVm1QZEH/D+JBG1xdBxe4fs9cSBx/oGvU6uUBLkRB6hT4ljHt/qQpLpqwTNyDpHxXiMaUBlm+x5CyLxRUTIf/UFJzBnhBiSiZC4yyS1beiWfBfsuant1zGAj2Ma4Nd9oiDHICL1IKL0S7f6NRb97bPn4IoY7iKDjDWgyRZIUiIiggy3bWVDt5Dtij2A+r1SHfVNcM49hIxKT7K09ZkSdDZaJrlnS+ynmLyV6i4Z/2OQ9FFbZboVTrfRtX4+Ct0V+9hKEzIASSnAKEyjIkbju8t30B6Ep7aSIeuwC2uPHG8fBpIk+rHdRB+6ECNZkdplmOQY5hfZHvem/tP3VqLhCACJSigJLBdugWgi17jVpro7Yu+QMNT1vdI0Mnq4hE58J2kOAyTBSx9bMx6irpfd3u/z1IBqyS6UvZzpEdMdn/h7qlmAEE7bpXSerMY2bc7TPU/2f2TPQVrqDR/Row8/q5Yj3UkkuWUyt4SK5Gd06qYCkwqnLbG3v/iffscTPMI4APi07VMv/cg1HpN+T7gp9yjzaNJds+f0E9cxagQV0KECg/6Ps47G8sA7QXvYTIWc/o7Zc6Ajx/DQW1iDHDVU3I7mZEzylCHExmXn7IkYR4RoSJSxddaMBEEROaVTNjXmM9oO2fPe39Ip1+TAURDid/CQ6V/kFuKC1FQhoq7G6RWRpRuaZVd1SC+qPUSE/7x6wu/Weh7jlwqNV1/6z1FAYyIDVhHkBO0xU2J58Bk2u2DPi5V64XFcBZgkBXyOFuigJGCU1KRyM9jofTQ9zw7YK2WuSL5vAEpsmBCaDquKGgF1mYx34pKEzfFtt9cfi357rj8++DrYCYA4LRutyUHYE6vHI2wcGbaZnOa33L7wc9D1vzH+M2N8/fkXvq8k/B5e+uN9XUq/d1K7jJALf2wZOhvlYWMX2R4iKDzH5I/ydRfwjR/7l5d/xo8d9Dr8ZyT7e78467CBjDAwK6Iie2amXvFA1fI+qNlLxmoUz3Nx7ctFXmHVNdrJwa3jX0VWu6Ld+OlPfFKvt78kCE+QI/oAbcB2BhihU/WpaXIMWZWLbQ8Sf2Yz/RXm8MK7X3n5VTxf41fntfbCu679VPt9/dHsLymmnlJmFolmRKNsMt6y5I8peF8ui4bZdo4wR9tanzcyL7K9LlX4S6Mb+r8VvPTMN//2ywXp/+tHMPCfyQ2PQeFnDPIAAAAASUVORK5CYII=',
+                        width: 35,
+                        height: 43
+                    }
+                }
+            },
+            mounted() {
+                this.initCanvas()
+                this.initImages()
+                this.executeFrame()
+            },
+            methods: {
+                initCanvas() {
+                    this.canvas = this.$refs.canvasGift
+                    this.ctx = this.canvas.getContext('2d')
+                    // 这里获取 canvas 父标签的宽度和高度，赋值给 canvas
+                    const parent = this.canvas.parentElement
+                    this.canvas.width = parent.offsetWidth
+                    this.canvas.height = parent.offsetHeight
+                },
+                // 将访入 this.images 里面的对象初始化单独拎出来作为一个方法
+                initImageItem(image) {
+                    return {
+                        image,
+                        tilt: getRandom(3, 6), // 速度加成。视情况而定。越小速度越慢
+                        scale: getRandom(-45, 45), // 倾斜度，最多向左或向右倾斜45°
+                        left: getRandom(0, window.innerWidth - this.img.width),
+                        top: getRandom(10 - this.img.height, -this.img.height)  // 
+                    }
+                },
+                async initImages() {
+                    const image = await loadImage(this.img.url)
+                    // 每隔150ms 加入一个image 直到 this.images 数组项的数量达到 this.sum
+                    const timer = setInterval(() => {
+                        if (this.images.length < this.sum && !this.end) {
+                            this.images.push(this.initImageItem(image))
+                        } else {
+                            clearInterval(timer)
+                        }
+                    }, 150)
+                },
+                executeFrame() {
+                    // 页面大小变化话，重新计算 canvas 的长度和宽度
+                    if (this.canvas.width !== window.innerWidth || this.canvas.height !== window.innerHeight) {
+                        this.initCanvas()
+                    }
+                    // 清空所有
+                    this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
+                    // 将 this.images 里面的所有项绘制到画布中
+                    this.images.forEach((item, index) => {
+                        // 角度转成弧度
+                        const r = item.scale * Math.PI / 180
+                        // 计算倾斜后的坐标值
+                        const temp = item.top - item.left * Math.tan(r)
+                        const top = temp * Math.cos(r)
+                        const left = (item.left / Math.cos(r)) + temp * Math.sin(r)
+
+                        // 保存状态
+                        this.ctx.save()
+                        // 设置画布上的(0,0)位置，也就是旋转的中心点
+                        // this.ctx.translate(0, 0)
+                        this.ctx.rotate(r)
+                        // 绘制图片
+                        this.ctx.drawImage(item.image, left, top, this.img.width, this.img.height)
+                        // 恢复状态
+                        this.ctx.restore()
+
+                        if (item.top + item.tilt <= window.innerHeight) {
+                            // 还没有到达底部，继续向下
+                            item.top = item.top + item.tilt
+                        } else {
+                            // 到达底部后，重新赋值。重新随机从上面出现
+                            this.images[index] = this.initImageItem(item.image)
+                        }
+                    })
+                    // 递归渲染
+                    window.requestAnimationFrame(this.executeFrame)
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

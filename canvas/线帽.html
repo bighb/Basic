@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>canvas基础学习</title>
+</head>
+
+<body>
+    <canvas id="canvas" width="600px" height="600px"></canvas>
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        ctx.fillStyle = "yellow"
+        ctx.fillRect(0, 0, 600, 600);  //描边矩形
+        // 开始
+        ctx.lineWidth = 20;
+        ctx.beginPath();
+        ctx.strokeStyle = 'red';
+        ctx.moveTo(100, 100);
+        ctx.lineTo(500, 100);
+        ctx.lineCap = "butt"; //线段端点的样式
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.strokeStyle = 'purple';
+        ctx.moveTo(100, 150);
+        ctx.lineTo(500, 150);
+        ctx.lineCap = "round"; //线段端点的样式
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.strokeStyle = 'blue';
+        ctx.moveTo(100, 200);
+        ctx.lineTo(500, 200);
+        ctx.lineCap = "square"; //线段端点的样式
+        ctx.stroke();
+    </script>
+</body>
+
+</html>
