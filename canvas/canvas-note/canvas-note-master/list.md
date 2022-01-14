@@ -1,0 +1,56 @@
+
+- 1. Draw Basic
+  - [x] Draw line
+  - [x] Drawing shapes
+  - [x] Drawing Path2D
+  - [x] Drawing font
+  - [x] Filling color
+  - [x] Drawing shadows
+  - [x] 2D deformation
+  - [x] Style status
+  - [x] Drawing curve
+  - [x] Drawing optimized curve 
+- Drawing Rich-text 
+  - [x] Font background-color
+  - [x] Font border
+  - [x] Text wrap
+  - [x] Text ellipsis
+  - [x] Text
+  - [x] Image center
+  - [x] Image mutiple-request
+  - [] Rich text
+- Paint
+  - [x] Paint
+  - [] Paint line
+  - [] Paint ink
+  - [] Writing brush
+- Image processing
+  - [x] Image processing basic
+  - [x] Image scale
+  - [x] Image rotate
+  - [x] Image compress
+  - [x] Image upload and download
+- Rendering animation
+  - [x] Animation basic
+  - [x] Snow 
+  - [] Rain 
+- Drawing Chart
+  - [] Line
+  - [] Area
+  - [] Bar
+  - [] Pie
+  - [] Radar
+- Testing
+  - [] Testing by draw-calls
+  - [x] Testing by e2e
+- Transform
+  - [] Import Image
+  - [] Import ImageData
+  - [] Import ImageBitmap
+  - [x] Import SVG
+  - [] Export ImageData
+  - [] Export Base64
+- Other
+  - []Fingerprint
+
+  

@@ -1,0 +1,28 @@
+{
+  "name": "canvas-note",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "http-server ./demo/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chenshenhai/canvas-note.git"
+  },
+  "keywords": [
+    "canvas",
+    "note"
+  ],
+  "author": "chenshenhai",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/chenshenhai/canvas-note/issues"
+  },
+  "homepage": "https://github.com/chenshenhai/canvas-note#readme",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "http-server": "^0.12.3"
+  }
+}
