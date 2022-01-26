@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>backface-visibility</title>
+</head>
+<style>
+    .content {
+        width: 340px;
+        height: 340px;
+        position: relative;
+        display: grid;
+        grid-template-columns: 100px 100px 100px;
+        grid-template-rows: 100px 100px 100px;
+        grid-gap: 20px;
+    }
+
+    .box {
+        width: 100px;
+        height: 100px;
+        position: relative;
+        transition: all 1s cubic-bezier(0.68, -0.22, 0.265, 1.22);
+        top: 0;
+        left: 0;
+    }
+
+    .box img {
+        width: 100%;
+        height: 100%;
+        transition: all 1s cubic-bezier(0.68, -0.22, 0.265, 1.22);
+        position: absolute;
+        top: 0;
+        left: 0;
+        -webkit-backface-visibility: hidden;
+        /* CSS 属性 backface-visibility 指定当元素背面朝向观察者时是否可见。 虽然在 2D 中不可见，但是当变换导致元素在 3D 空间中旋转时，背面可以变得可见 */
+        backface-visibility: hidden;
+        transform-style: preserve-3d;
+    }
+
+    .back {
+        transform: rotateY(0);
+    }
+
+    .front {
+        transform: rotateY(180deg);
+    }
+
+    .active .back {
+        transform: rotateY(180deg);
+    }
+
+    .active .front {
+        transform: rotateY(0);
+    }
+
+    .riffle {
+        background-color: blueviolet;
+        font-size: 30px;
+        width: 100px;
+        height: 30px;
+        text-align: center;
+        line-height: 30px;
+    }
+
+    /* 开始洗牌移动 */
+    .move {
+        top: 120px;
+        left: 120px;
+        position: absolute;
+    }
+</style>
+<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+
+<body>
+    <div id="app">
+        <div class="content">
+            <div class="box" v-for="(item,index) in card" @click="open(index)"
+                :class="{'move' : item.ismove, active : item.status   }">
+                <img :src="item.img" class="front" alt="" srcset="" />
+                <img class="back" src="https://www.sunniejs.cn/static/weapp/card.png" alt="" srcset="" />
+            </div>
+        </div>
+        <div class="riffle" @click="riffle()">洗牌</div>
+
+    </div>
+
+    <script>
+        /**
+         * runAsync 延迟返回 promise 方法
+         * @param  {Number} time 延迟时间
+         * @return {type}   返回Promise对象
+         */
+        function runAsync(time) {
+            return new Promise(function (resolve, reject) {
+                const timer = setTimeout(function () {
+                    resolve();
+                    clearTimeout(timer);
+                }, time);
+            });
+        }
+        var app = new Vue({
+            el: "#app",
+            data() {
+                return {
+                    ready: false, // 是否点击开始抽奖
+                    // 九宫格数据
+                    card: [
+                        {
+                            ismove: false,
+                            id: 1,
+                            prizeName: "10金币",
+                            img: "https://www.sunniejs.cn/static/weapp/prize.png",
+                            status: 0, //   :0 反面 , 1 正面
+                        },
+                        {
+                            id: 2,
+                            ismove: false,
+                            prizeName: "10金币",
+                            img: "https://www.sunniejs.cn/static/weapp/prize.png",
+                            status: 0,
+                        },
+                        {
+                            id: 3,
+                            ismove: false,
+                            prizeName: "100金币",
+                            img: "https://www.sunniejs.cn/static/weapp/prize.png",
+                            status: 0,
+                        },
+                        {
+                            id: 4,
+                            ismove: false,
+                            prizeName: "10金币",
+                            img: "https://www.sunniejs.cn/static/weapp/prize.png",
+                            status: 0,
+                        },
+                        {
+                            id: 5,
+                            ismove: false,
+                            prizeName: "40金币",
+                            img: "https://www.sunniejs.cn/static/weapp/prize.png",
+                            status: 0,
+                        },
+                        {
+                            id: 6,
+                            ismove: false,
+                            prizeName: "20金币",
+                            img: "https://www.sunniejs.cn/static/weapp/prize.png",
+                            status: 0,
+                        },
+                        {
+                            id: 7,
+                            ismove: false,
+                            prizeName: "50金币",
+                            img: "https://www.sunniejs.cn/static/weapp/prize.png",
+                            status: 0,
+                        },
+                        {
+                            id: 8,
+                            ismove: false,
+                            prizeName: "60金币",
+                            img: "https://www.sunniejs.cn/static/weapp/prize.png",
+                            status: 0,
+                        },
+                        {
+                            id: 9,
+                            ismove: false,
+                            prizeName: "10金币",
+                            img: "https://www.sunniejs.cn/static/weapp/prize.png",
+                            status: 0,
+                        },
+                    ],
+                };
+            },
+            mounted() { },
+            methods: {
+                // 洗牌
+                riffle() {
+                    if (this.ready) {
+
+                        return alert("已经洗牌完了")
+                    }
+                    this.ready = true
+                    const { card } = this;
+                    runAsync(100)
+                        .then(() => {
+                            for (let index = 0; index < card.length; index++) {
+                                card[index].status = 1;
+                            }
+                            return runAsync(2000);
+                        })
+                        .then(() => {
+                            for (let index = 0; index < card.length; index++) {
+                                card[index].status = 0;
+                            }
+                            return runAsync(2000);
+                        })
+                        .then(() => {
+                            for (let i = 0; i < card.length; i++) {
+                                runAsync(i * 40).then(() => {
+                                    this.card[i].ismove = true;
+                                    return runAsync(i * 40 + 1200)
+                                }).then(() => {
+                                    this.card[i].ismove = false;
+
+                                })
+                            }
+                        })
+                },
+                // 开奖
+                open(index) {
+
+                    this.card[index].status = 1;
+                },
+            },
+        });
+    </script>
+</body>
+
+</html>

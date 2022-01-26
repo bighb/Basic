@@ -24,8 +24,10 @@
         position: relative;
         animation-name: loop_to, background_change;
         animation-duration: 4s;
+        animation-delay: 1500ms;
         animation-iteration-count: 1;
-        animation-fill-mode: forwards;
+        animation-fill-mode:forwards;
+        animation-iteration-count: infinite;
     }
 
     @keyframes loop_to {
@@ -67,7 +69,15 @@
 </style>
 
 <body>
-    <div class="box"></div>
+    <div class="box" id="box"></div>
+    <script>
+        window.onload=function(){
+            const myDom=document.getElementById("box")
+            myDom.addEventListener('click',function(){
+                console.log(11);
+            })
+        }
+    </script>
 </body>
 
 </html>

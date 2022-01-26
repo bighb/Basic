@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style type="text/css">
+        p {
+            border-bottom: 1px solid #AAAAAA;
+        }
+        /* :last-child表示其父元素的最后一个子元素，且这个元素是css指定的元素，才可以生效。 */
+        p:last-child {
+            border-bottom-color: #F00;
+        }
+    </style>
+</head>
+<body>
+    <p>我是第1个p元素的内容</p>
+    <p>我是第2个p元素的内容</p>
+    <p>我是第3个p元素的内容</p>
+    <p>我是最后一个p元素的内容</p>
+    <div>我是个干扰元素</div>
+</body>
+</html>
