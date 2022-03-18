@@ -1,0 +1,18 @@
+.test {
+  border-color: #207BE4;
+  background-image: url("../img/white-sand.png");
+  width: 30px;
+  color: #efefef;
+  background-color: #efefef;
+  border-width: 30px;
+}
+.test .inner {
+  color: #207BE4;
+}
+.test .border_top {
+  border-top: 1px solid #207BE4;
+}
+.test::after {
+  content: '*';
+  color: green;
+}

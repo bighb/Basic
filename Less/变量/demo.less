@@ -1,0 +1,26 @@
+@primary-color: #ffaf53;
+@primary-color: #207BE4;           // 前面有定义的@primary-color，会覆盖，使用新值 #207BE4
+@position: top;
+@images: "../img";
+
+.test {
+  border-color: @primary-color;    // 变量使用
+
+  background-image: url("@{images}/white-sand.png");    // 路径等都可以用变量
+  width: 30px;
+  color: #efefef;
+  background-color: $color;   // 通过$取某个属性值
+  border-width: $width;
+  @color: primary-color;      // 可以将变量名赋值给另一个变量
+  .inner {
+    color: @@color;
+  }
+
+  .border_@{position} {    // 字符串中，通过 {} 包裹使用变量
+    border-@{position}: 1px solid @primary-color;
+  }
+  &::after {                // 嵌套代码中，使用 & 引用父元素
+    content: '*';
+    color: green;
+  }
+}
