@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>最大公共字符串关键字匹配</title>
+    <!-- 引入Vue -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.2.1/vue.min.js"></script>
+</head>
+
+<body>
+    <!-- 
+				事件的基本使用：
+							1.使用v-on:xxx 或 @xxx 绑定事件，其中xxx是事件名；
+							2.事件的回调需要配置在methods对象中，最终会在vm上；
+							3.methods中配置的函数，不要用箭头函数！否则this就不是vm了；
+							4.methods中配置的函数，都是被Vue所管理的函数，this的指向是vm 或 组件实例对象；
+							5.@click="demo" 和 @click="demo($event)" 效果一致，但后者可以传参；
+		-->
+    <!-- 准备好一个容器-->
+    <div id="root">
+        <input type="text" placeholder="请输入关键字" v-model="keyword"> <button @click="featch">搜索</button>
+        <ul>
+            <li v-for="(item,index) in list" :key="index">
+                <span v-for="(ele,i) in item.searchList.data" :key="i"
+                    :class="ele === item.searchList.sub  ? 'highlight' : '' ">{{ele}}</span>
+            </li>
+        </ul>
+    </div>
+</body>
+<style>
+    .highlight {
+        color: red;
+    }
+</style>
+<script type="text/javascript">
+    Vue.config.productionTip = false //阻止 vue 在启动时生成生产提示。
+    
+    const data = [
+    {
+            name: '东湖观光氦气球'
+        },
+        // {
+        //     name: '武汉科学技术官（新馆）'
+        // },
+        // {
+        //     name: '武汉科技馆小小科学界探究实验活动中心'
+        // },
+        // {
+        //     name: '武汉科学技术馆·游客服务中心'
+        // },
+        // {
+        //     name: '中国建筑科技馆'
+        // },
+    ]
+    // 切割
+    const getInf = (str, key) => str.replace(new RegExp(`${key}`, "g"), `%%${key}%%`).split("%%");
+    // 查询最大匹配子串
+    const lcs = (a, b) => {
+        var ai, al = a.length,
+            bi, bl = b.length - 1, maxBi,
+            max = 0, val,
+            row = [],
+            ret = [];
+
+        for (ai = 0; ai < al; ai++) {
+            for (bi = bl; bi > -1; bi--) {
+                val = a[ai] == b[bi] ? 1 : 0;
+                if (val) {
+                    if (row[bi - 1]) {
+                        val += row[bi - 1];
+                    }
+                    if (val > max) {
+                        max = val;
+                        maxBi = bi;
+                    }
+                }
+                row[bi] = val;
+            }
+        }
+
+        for (; max > 0; max--, maxBi--) {
+            ret.unshift(b[maxBi]);
+        }
+
+        return ret.join('');
+    }
+    const vm = new Vue({
+        el: '#root',
+        data: {
+            keyword: '科技馆',
+            list: []
+        },
+        methods: {
+            format(keyword, name) {
+                // 获取高亮子串
+                const sub = lcs(keyword, name)
+                return {
+                    data: getInf(name, sub),
+                    sub
+                }
+            },
+
+            featch() {
+
+                this.list = data.map((e) => {
+                    return {
+                        ...e,
+                        searchList: this.format(this.keyword, e.name)
+                    }
+                })
+                console.log('  this.list: ', this.list);
+            }
+        }
+    })
+</script>
+
+</html>
