@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>根据标签分割成数组split</title>
-  </head>
-  <body>
+</head>
+
+<body>
     <script>
-      let str =
-        "<span>华为</span>永远不会出售终端业务<span>成果</span>远不会出售终端业务";
-      const reg = /<\/span>|<span>/g;
-      let arr = str.split(reg);
-      console.log(arr);
-      let domReg = /(?<=(<span[^>]*?>)).*?(?=(<\/span>))/g;
-      let res= str.match(domReg);
-      console.log('res: ', res);
+        let str =
+            "<span style=color:red>华为</span>永远不会出售终端业务<span>成果</span>远不会出售终端业务";
+        const reg = /<span[^>]*?>|<\/span>/g;
+        let arr = str.split(reg);
+        console.log(arr);
     </script>
-  </body>
+</body>
+
 </html>
