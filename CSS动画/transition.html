@@ -25,12 +25,16 @@
     }
 
     img {
-        width: 400px;
-        height: 400px;
+        width: 100px;
+        height: 100px;
         margin-top: 300px;
         margin-left: 300px;
-        /* transform: rotateY(180deg); */
-        transform: perspective(500px) rotateY(40deg)
+
+        
+        transition: 2s ease-out;
+    }
+    img:hover{
+        transform:translateX(1000px);
     }
 </style>
 
