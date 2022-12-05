@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图片懒加载</title>
+</head>
+<style>
+    .content {
+        border: solid 3px saddlebrown;
+        height: 200px;
+        width: 400px;
+        overflow: scroll;
+    }
+
+    .box {
+        background-color: red;
+        width: 100px;
+        height: 100px;
+        margin: 300px 0;
+    }
+</style>
+
+<body>
+    <div class="content">
+        <div class="box">
+
+        </div>
+        <div class="box">
+
+        </div>
+    </div>
+    <script>
+        var io = new IntersectionObserver(
+            entries => {
+                console.log(entries);
+            }
+        );
+
+        function query(selector) {
+            return Array.from(document.querySelectorAll(selector));
+        }
+        console.log('io: ', io);
+        query('.box').forEach((e) => io.observe(e))
+    </script>
+</body>
+
+</html>
