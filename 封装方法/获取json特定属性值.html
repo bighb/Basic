@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+<div class="box">22</div>
+
+<body>
+    <script>
+        fetch("./pages.json")
+            .then((response) => response.json())
+            .then((json) => {
+                console.log('json: ', json);
+                let arr = (json.pages).map(e => {
+                    return {
+                        path: e.path,
+                        name: e.style.navigationBarTitleText
+                    }
+                })
+
+                console.log(arr);
+                let arr2 = []
+                for (let i = 0; i < json.subPackages.length; i++) {
+                    const list = json.subPackages[i].pages
+                    arr2.push(...list)
+                }
+
+                let arr3 = arr2.map(e => {
+                    return {
+                        path: e.path,
+                        name: e.style.navigationBarTitleText
+                    }
+                })
+                console.log('arr3: ', arr3);
+                let arr4 = [...arr, ...arr3]
+                console.table(arr4);
+            });
+    </script>
+</body>
+
+</html>

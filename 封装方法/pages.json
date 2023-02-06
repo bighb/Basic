@@ -1,0 +1,607 @@
+{
+    "pages": [
+        {
+            "path": "pages/welcome/welcome",
+            "style": {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+        },
+        {
+            "path": "pages/home/index",
+            "style": {
+                "navigationBarTitleText": "半导纵横",
+                "navigationStyle": "custom",
+                "enablePullDownRefresh": true
+            }
+        },
+        {
+            "path": "pages/login/login",
+            "style": {
+                "navigationBarTitleText": "半导纵横",
+                "enablePullDownRefresh": false
+            }
+        },
+        {
+            "path": "pages/exit-app/exit-app",
+            "style": {
+                "navigationBarTitleText": "半导纵横",
+                "enablePullDownRefresh": false
+            }
+        },
+        {
+            "path": "pages/home/searchResults",
+            "style": {
+                "navigationBarTitleText": "半导纵横",
+                "enablePullDownRefresh": false
+            }
+        },
+        {
+            "path": "pages/mine/index",
+            "style": {
+                "navigationBarTitleText": "我的",
+                "enablePullDownRefresh": false
+            }
+        },
+        {
+            "path": "pages/home/search",
+            "style": {
+                "navigationBarTitleText": "半导纵横",
+                "enablePullDownRefresh": false
+            }
+        },
+        {
+            "path": "pages/webView/webView",
+            "style": {
+                "navigationBarTitleText": "半导纵横",
+                "enablePullDownRefresh": false
+            }
+        },
+        {
+            "path": "pages/news/index",
+            "style": {
+                "navigationBarTitleText": "半导纵横",
+                "enablePullDownRefresh": false
+            }
+        },
+        {
+            "path": "pages/news/message",
+            "style": {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+        },
+        {
+            "path": "pages/news/at-notification-list",
+            "style": {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": true
+            }
+        },
+        {
+            "path": "pages/news/comment-notification-list",
+            "style": {
+                "navigationBarTitleText": "评论",
+                "enablePullDownRefresh": true
+            }
+        },
+        {
+            "path": "pages/news/like-notification-list",
+            "style": {
+                "navigationBarTitleText": "点赞",
+                "enablePullDownRefresh": true
+            }
+        },
+        {
+            "path": "pages/news/store-notification-list",
+            "style": {
+                "navigationBarTitleText": "收藏",
+                "enablePullDownRefresh": true
+            }
+        },
+        {
+            "path": "pages/news/system-notification-list",
+            "style": {
+                "navigationBarTitleText": "系统消息",
+                "enablePullDownRefresh": true
+            }
+        },
+        {
+            "path": "pages/home/choosePotion",
+            "style": {
+                "navigationBarTitleText": "半导纵横",
+                "navigationStyle": "custom",
+                "enablePullDownRefresh": false
+            }
+        }
+    ],
+    "subPackages": [
+        {
+            "root": "pagesSub",
+            "pages": [
+                {
+                    "path": "reportList/reportList",
+                    "style": {
+                        "navigationBarTitleText": "研报列表",
+                        "enablePullDownRefresh": false
+                    }
+                },
+                {
+                    "path": "reportList/qrcode",
+                    "style": {
+                        "navigationBarTitleText": "扫描电脑查看",
+                        "enablePullDownRefresh": false
+                    }
+                },
+                {
+                    "path": "notice/index",
+                    "style": {
+                        "navigationBarTitleText": "公告列表",
+                        "enablePullDownRefresh": false
+                    }
+                },
+                {
+                    "path": "notice/noticeDetail",
+                    "style": {
+                        "navigationBarTitleText": "系统公告",
+                        "enablePullDownRefresh": false
+                    }
+                },
+                {
+                    "path": "course/index",
+                    "style": {
+                        "navigationBarTitleText": "应用场",
+                        "enablePullDownRefresh": false
+                    }
+                },
+                {
+                    "path": "point/pointDetailArticle",
+                    "style": {
+                        "navigationBarTitleText": "观点详情",
+                        "enablePullDownRefresh": false,
+                        "usingComponents": {
+                            "painter": "/wxcomponents/Kujiale-Mobile-painter/painter"
+                        }
+                    }
+                },
+                {
+                    "path": "point/pointDetailVideo",
+                    "style": {
+                        "navigationBarTitleText": "观点详情",
+                        "enablePullDownRefresh": false
+                    }
+                },
+                {
+                    "path": "point/expertDetail",
+                    "style": {
+                        "navigationBarTitleText": "专家详情",
+                        "enablePullDownRefresh": true
+                    }
+                },
+                {
+                    "path": "match/detail",
+                    "style": {
+                        "navigationBarTitleText": "活动详情",
+                        "enablePullDownRefresh": false
+                    }
+                },
+                {
+                    "path": "match/chooseSchool",
+                    "style": {
+                        "navigationBarTitleText": "选择院校",
+                        "enablePullDownRefresh": false
+                    }
+                },
+                {
+                    "path": "course/search",
+                    "style": {
+                        "navigationBarTitleText": "半导纵横",
+                        "enablePullDownRefresh": false
+                    }
+                },
+                {
+                    "path": "course/searchResults",
+                    "style": {
+                        "navigationBarTitleText": "半导纵横",
+                        "enablePullDownRefresh": false
+                    }
+                },
+                {
+                    "path": "course/findTypeDetail",
+                    "style": {
+                        "navigationBarTitleText": "应用场",
+                        "navigationBarTextStyle": "white",
+                        "navigationBarBackgroundColor": "#000000",
+                        "backgroundColor": "#000000",
+                        "enablePullDownRefresh": false
+                    }
+                },
+                {
+                    "path": "course/courseDetail",
+                    "style": {
+                        "navigationBarTitleText": "应用场",
+                        "enablePullDownRefresh": false
+                    }
+                },
+                {
+                    "path": "match/signUp",
+                    "style": {
+                        "navigationBarTitleText": "赛事报名",
+                        "enablePullDownRefresh": false
+                    }
+                },
+                {
+                    "path": "selectCity/selectCity",
+                    "style": {
+                        "navigationBarTitleText": "城市选择",
+                        "enablePullDownRefresh": false
+                    }
+                },
+                {
+                    "path": "article-detail/article-detail",
+                    "style": {
+                        "navigationBarTitleText": "",
+                        "enablePullDownRefresh": false,
+                        "usingComponents": {
+                            "painter": "/wxcomponents/Kujiale-Mobile-painter/painter"
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "root": "semiPagesSub",
+            "pages": [
+                {
+                    "path": "pages/index/index",
+                    "style": {
+                        "navigationBarTitleText": "半导圈",
+                        "enablePullDownRefresh": true
+                    }
+                },
+                {
+                    "path": "pages/search/search",
+                    "style": {
+                        "navigationBarTitleText": "半导圈",
+                        "enablePullDownRefresh": false
+                    }
+                },
+                {
+                    "path": "pages/searchResult/searchResult",
+                    "style": {
+                        "navigationBarTitleText": "半导圈",
+                        "enablePullDownRefresh": false
+                    }
+                },
+                {
+                    "path": "pages/dynamic/dynamic",
+                    "style": {
+                        "navigationBarTitleText": "发布动态",
+                        "enablePullDownRefresh": false
+                    }
+                },
+                {
+                    "path": "pages/homePage/homePage",
+                    "style": {
+                        "navigationBarTitleText": "个人主页",
+                        "enablePullDownRefresh": false
+                    }
+                },
+                {
+                    "path": "pages/question/question",
+                    "style": {
+                        "navigationBarTitleText": "提个问题",
+                        "enablePullDownRefresh": false
+                    }
+                },
+                {
+                    "path": "pages/friendsPage/friendsPage",
+                    "style": {
+                        "navigationBarTitleText": "TA的好友",
+                        "enablePullDownRefresh": false
+                    }
+                },
+                {
+                    "path": "pages/atFriend/atFriend",
+                    "style": {
+                        "navigationBarTitleText": "你想@谁",
+                        "enablePullDownRefresh": false
+                    }
+                },
+                {
+                    "path": "pages/topicPage/topicPage",
+                    "style": {
+                        "navigationBarTitleText": "半导圈",
+                        "enablePullDownRefresh": false
+                    }
+                },
+                {
+                    "path": "pages/answerDetail/answerDetail",
+                    "style": {
+                        "navigationBarTitleText": "半导圈",
+                        "enablePullDownRefresh": false
+                    }
+                },
+                {
+                    "path": "pages/dynamicDeatil/dynamicDeatil",
+                    "style": {
+                        "navigationBarTitleText": "动态详情",
+                        "enablePullDownRefresh": false,
+                        "usingComponents": {
+                            "painter": "/wxcomponents/Kujiale-Mobile-painter/painter"
+                        }
+                    }
+                },
+                {
+                    "path": "pages/answerList/answerList",
+                    "style": {
+                        "navigationBarTitleText": "半导圈",
+                        "enablePullDownRefresh": false,
+                        "usingComponents": {
+                            "painter": "/wxcomponents/Kujiale-Mobile-painter/painter"
+                        }
+                    }
+                },
+                {
+                    "path": "pages/topicSquare/topicSquare",
+                    "style": {
+                        "navigationBarTitleText": "话题广场",
+                        "enablePullDownRefresh": false
+                    }
+                },
+                {
+                    "path": "pages/answer/answer",
+                    "style": {
+                        "navigationBarTitleText": "回答",
+                        "enablePullDownRefresh": false
+                    }
+                }
+            ]
+        },
+        {
+            "root": "productRemitSub",
+            "pages": [
+                {
+                    "path": "pages/index/index",
+                    "style": {
+                        "navigationBarTitleText": "产品汇",
+                        "enablePullDownRefresh": true
+                    }
+                },
+                {
+                    "path": "pages/search/search",
+                    "style": {
+                        "navigationBarTitleText": "产品汇",
+                        "enablePullDownRefresh": false
+                    }
+                },
+                {
+                    "path": "pages/searchResult/searchResult",
+                    "style": {
+                        "navigationBarTitleText": "产品汇",
+                        "enablePullDownRefresh": false
+                    }
+                },
+                {
+                    "path": "pages/publish/publish",
+                    "style": {
+                        "navigationBarTitleText": "发布",
+                        "enablePullDownRefresh": false
+                    }
+                },
+                {
+                    "path": "pages/selectTags/selectTags",
+                    "style": {
+                        "navigationBarTitleText": "选择标签",
+                        "enablePullDownRefresh": false
+                    }
+                },
+                {
+                    "path": "pages/detail/detail",
+                    "style": {
+                        "navigationBarTitleText": "",
+                        "enablePullDownRefresh": false,
+                        "usingComponents": {
+                            "painter": "/wxcomponents/Kujiale-Mobile-painter/painter"
+                        }
+                    }
+                },
+                {
+                    "path": "pages/editPublish/editPublish",
+                    "style": {
+                        "navigationBarTitleText": "发布",
+                        "enablePullDownRefresh": false
+                    }
+                },
+                {
+                    "path": "pages/declare/declare",
+                    "style": {
+                        "navigationBarTitleText": "",
+                        "enablePullDownRefresh": false
+                    }
+                }
+            ]
+        },
+        {
+            "root": "mineSub",
+            "pages": [
+                {
+                    "path": "pages/changeName/changeName",
+                    "style": {
+                        "navigationBarTitleText": "昵称",
+                        "enablePullDownRefresh": false
+                    }
+                },
+                {
+                    "path": "pages/changeCompany/changeCompany",
+                    "style": {
+                        "navigationBarTitleText": "单位",
+                        "enablePullDownRefresh": false
+                    }
+                },
+                {
+                    "path": "pages/bindPhone/bindPhone",
+                    "style": {
+                        "navigationBarTitleText": "个人信息",
+                        "enablePullDownRefresh": false
+                    }
+                },
+                {
+                    "path": "pages/changeIntro/changeIntro",
+                    "style": {
+                        "navigationBarTitleText": "简介",
+                        "enablePullDownRefresh": false
+                    }
+                },
+                {
+                    "path": "pages/service/service",
+                    "style": {
+                        "navigationBarTitleText": "联系客服",
+                        "enablePullDownRefresh": false
+                    }
+                },
+                {
+                    "path": "pages/myPublish/myPublish",
+                    "style": {
+                        "navigationBarTitleText": "我的发布",
+                        "enablePullDownRefresh": false
+                    }
+                },
+                {
+                    "path": "pages/myCollect/myCollect",
+                    "style": {
+                        "navigationBarTitleText": "我的收藏",
+                        "enablePullDownRefresh": false
+                    }
+                },
+                {
+                    "path": "pages/myFollow/myFollow",
+                    "style": {
+                        "navigationBarTitleText": "我的关注",
+                        "enablePullDownRefresh": false
+                    }
+                },
+                {
+                    "path": "pages/myFans/myFans",
+                    "style": {
+                        "navigationBarTitleText": "我的粉丝",
+                        "enablePullDownRefresh": false
+                    }
+                },
+                {
+                    "path": "pages/myMatch/myMatch",
+                    "style": {
+                        "navigationBarTitleText": "我的赛事",
+                        "enablePullDownRefresh": false
+                    }
+                },
+                {
+                    "path": "pages/integralCetify/integralCetify",
+                    "style": {
+                        "navigationBarTitleText": "积分任务",
+                        "enablePullDownRefresh": false
+                    }
+                },
+                {
+                    "path": "pages/integralDetail/integralDetail",
+                    "style": {
+                        "navigationBarTitleText": "积分明细",
+                        "enablePullDownRefresh": false
+                    }
+                },
+                {
+                    "path": "pages/intrgralRules/intrgralRules",
+                    "style": {
+                        "navigationBarTitleText": "积分规则",
+                        "enablePullDownRefresh": false
+                    }
+                },
+                {
+                    "path": "pages/exchangeRecords/exchangeRecords",
+                    "style": {
+                        "navigationBarTitleText": "兑换记录",
+                        "enablePullDownRefresh": false
+                    }
+                },
+                {
+                    "path": "pages/mineEdit/mineEdit",
+                    "style": {
+                        "navigationBarTitleText": "编辑资料",
+                        "enablePullDownRefresh": false
+                    }
+                },
+                {
+                    "path": "pages/settleInCertify/settleInCertify",
+                    "style": {
+                        "navigationBarTitleText": "入驻认证",
+                        "enablePullDownRefresh": false
+                    }
+                },
+                {
+                    "path": "pages/settleInCertify/settleinStep",
+                    "style": {
+                        "navigationBarTitleText": "入驻认证",
+                        "enablePullDownRefresh": false
+                    }
+                },
+                {
+                    "path": "pages/settleInCertify/settleSuccess",
+                    "style": {
+                        "navigationBarTitleText": "入驻认证",
+                        "enablePullDownRefresh": false
+                    }
+                },
+                {
+                    "path": "pages/settleInCertify/settleInWxstep",
+                    "style": {
+                        "navigationBarTitleText": "入驻认证",
+                        "enablePullDownRefresh": false
+                    }
+                }
+            ]
+        }
+    ],
+    "globalStyle": {
+        "navigationBarTextStyle": "black",
+        "navigationBarTitleText": "uni-app",
+        "navigationBarBackgroundColor": "#FFFFFF",
+        "backgroundColor": "#F8F8F8",
+        "app-plus": {
+            "background": "#efeff4"
+        }
+    },
+    "tabBar": {
+        "selectedColor": "#333333",
+        "borderStyle": "black",
+        "list": [
+            {
+                "pagePath": "pages/home/index",
+                "iconPath": "static/home.png",
+                "selectedIconPath": "static/home_selected.png",
+                "text": "首页"
+            },
+            {
+                "pagePath": "pages/news/index",
+                "iconPath": "static/news.png",
+                "selectedIconPath": "static/news_selected.png",
+                "text": "消息"
+            },
+            {
+                "pagePath": "pages/mine/index",
+                "iconPath": "static/mine.png",
+                "selectedIconPath": "static/mine_selected.png",
+                "text": "我的"
+            }
+        ]
+    },
+    "condition": {
+        "list": [
+            {
+                "name": "enter",
+                "path": "pages/home/enter",
+                "query": "id=1"
+            }
+        ],
+        "current": 0
+    }
+}
