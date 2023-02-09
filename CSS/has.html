@@ -17,6 +17,19 @@
         margin: 0 0 0.2rem 0;
         /* reduce spacing on header, because subtitle will handle it */
     }
+
+    /* 实现前后兄弟元素选择 */
+    .active {
+        color: aqua;
+    }
+
+    .active+li {
+        background: rebeccapurple;
+    }
+
+    li:has(+.active) {
+        background-color: red;
+    }
 </style>
 
 <body>
@@ -33,6 +46,15 @@
             This is a subtitle
         </div>
         <div>fdsfds</div>
+    </div>
+    <div>
+        <ul>
+            <li>333</li>
+            <li>33</li>
+            <li class="active">33</li>
+            <li>3</li>
+            <li>3</li>
+        </ul>
     </div>
 </body>
 
