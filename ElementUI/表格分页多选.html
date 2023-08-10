@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <!-- import CSS -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/element-ui/lib/theme-chalk/index.css"
+    />
+  </head>
+  <body>
+    <div id="app">
+      <el-table
+        style="width: 100%"
+        ref="multipleTable"
+        :data="tableData"
+        @select="handleSelectChange"
+        @select-all="handleSelectAllChange"
+      >
+        <el-table-column type="selection" width="55"> </el-table-column>
+        <el-table-column label="日期" prop="date"> </el-table-column>
+        <el-table-column prop="name" label="姓名"> </el-table-column>
+      </el-table>
+
+      <div>
+        <el-pagination
+          background
+          :current-page.sync="currentPage"
+          layout="prev, pager, next"
+          :total="1000"
+          @current-change="currentChange"
+        />
+      </div>
+    </div>
+  </body>
+  <!-- import Vue before Element -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <!-- import JavaScript -->
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+  <script>
+    new Vue({
+      el: "#app",
+      data() {
+        return {
+          currentPage: 1,
+          crossPageMap: new Map(),
+          pageSize: 10,
+          totalData: Array.from({ length: 1000 }, (_, index) => {
+            return {
+              date: "2016-05-03",
+              id: index,
+              name: "王小虎" + index,
+            };
+          }),
+        };
+      },
+      computed: {
+        tableData() {
+          const { currentPage, totalData, pageSize } = this;
+          return totalData.slice(
+            (currentPage - 1) * pageSize,
+            currentPage * pageSize
+          );
+        },
+      },
+      methods: {
+        currentChange(page) {
+          this.currentPage = page;
+          this.tableData.forEach((row) => {
+            const checked = this.crossPageMap.has(row.id);
+            if (checked) this.$refs.multipleTable.toggleRowSelection(row, true);
+          });
+        },
+        handleSelectChange(val, row) {
+          const checked = this.crossPageMap.has(row.id);
+          if (checked) {
+            this.crossPageMap.delete(row.id);
+          } else {
+            this.crossPageMap.set(row.id, row);
+          }
+        },
+        handleSelectAllChange(val) {
+          this.tableData.forEach((row) => {
+            this.handleSelectChange(null, row);
+          });
+        },
+      },
+    });
+  </script>
+</html>
