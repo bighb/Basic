@@ -65,7 +65,7 @@ function useTheme(themeChoice) {
 }
 
 let preferredTheme = localStorage.getItem("theme");
-console.log("preferredTheme: ", preferredTheme);
+
 if (preferredTheme) {
   changeTheme(preferredTheme);
 } else {
@@ -73,7 +73,7 @@ if (preferredTheme) {
   preferredTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
     ? "dark"
     : "light";
-  console.log("windowPreferredTheme: ", preferredTheme);
+
   changeTheme(preferredTheme);
 }
 function changeTheme(preferredTheme) {
