@@ -4,7 +4,6 @@ toggleButton.addEventListener("change", toggleTheme, false);
 window
   .matchMedia("(prefers-color-scheme: dark)")
   .addEventListener("change", (e) => {
-    console.log("e: ", e);
     if (e.matches) {
       useTheme("dark");
       toggleButton.checked = true;

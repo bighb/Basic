@@ -129,7 +129,7 @@ article {
 }
 @media (prefers-color-scheme: dark) {
   :root {
-    --primary-color: red;
+    --primary-color: #000013;
     --secondary-color: #9cafeb;
     --font-color: #e1e1ff;
     --bg-color: #000013;
