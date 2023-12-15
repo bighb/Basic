@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        /* 设置当前元素为容器 */
+        container-type: inline-size;
+      }
+      .container p {
+        font-size: clamp(0.75rem, calc(100cqw / 40), 2rem);
+      }
+      /* 此时，当容器宽度小到一定程度的时候，就会文字加粗 */
+      @container (max-width: 1480px) {
+        .container p {
+          text-align: left;
+          font-weight: bold;
+          color: rebeccapurple;
+        }
+      }
+
+      /* 多个容器  此时，只有banner这容器元素内的 <p> 元素才会文字为红色。*/
+      .container-a {
+        container: aside / inline-size;
+      }
+      .container-b {
+        container: banner / inline-size;
+      }
+      @container banner (max-width: 1480px) {
+        p {
+          color: red;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <p>
+        群众的眼睛是雪亮了，《CSS新世界》上架快一年了依然排在京东Web开发书籍前几。
+      </p>
+    </div>
+    <div class="container-a">
+      <p>
+        群众的眼睛是雪亮了，《CSS新世界》上架快一年了依然排在京东Web开发书籍前几。我是容器a
+      </p>
+    </div>
+    <div class="container-b">
+      <p>
+        群众的眼睛是雪亮了，《CSS新世界》上架快一年了依然排在京东Web开发书籍前几。我是容器b
+      </p>
+    </div>
+  </body>
+</html>
