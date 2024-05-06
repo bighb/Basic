@@ -1,61 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<style>
+  </head>
+  <style>
     h2,
     .subtitle {
-        margin: 0 0 1.5rem 0;
+      margin: 0 0 1.5rem 0;
     }
 
     .header-group:has(h2):has(.subtitle) h2 {
-        margin: 0 0 0.2rem 0;
-        /* reduce spacing on header, because subtitle will handle it */
+      margin: 0 0 0.2rem 0;
+      /* reduce spacing on header, because subtitle will handle it */
     }
 
     /* 实现前后兄弟元素选择 */
     .active {
-        color: aqua;
+      color: aqua;
     }
 
-    .active+li {
-        background: rebeccapurple;
+    .active + li {
+      background: rebeccapurple;
     }
 
-    li:has(+.active) {
-        background-color: red;
+    li:has(+ .active) {
+      background-color: red;
     }
-</style>
+  </style>
 
-<body>
-
+  <body>
     <div class="header-group">
-        <h2>Blog Post Title</h2> <!-- main spacing applied here -->
-        <div>fdsfds</div>
+      <h2>Blog Post Title</h2>
+      <!-- main spacing applied here -->
+      <div>fdsfds</div>
     </div>
 
     <div class="header-group">
-        <h2>Blog Post Title</h2>
-        <div class="subtitle">
-            <!-- main spacing applied here -->
-            This is a subtitle
-        </div>
-        <div>fdsfds</div>
+      <h2>Blog Post Title</h2>
+      <div class="subtitle">
+        <!-- main spacing applied here -->
+        This is a subtitle
+      </div>
+      <div>fdsfds</div>
     </div>
     <div>
-        <ul>
-            <li>333</li>
-            <li>33</li>
-            <li class="active">33</li>
-            <li>3</li>
-            <li>3</li>
-        </ul>
+      <ul>
+        <li>1</li>
+        <li>2</li>
+        <li class="active">active</li>
+        <li>4</li>
+        <li>5</li>
+      </ul>
     </div>
-</body>
-
+  </body>
 </html>

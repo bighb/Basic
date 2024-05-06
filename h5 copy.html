@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>基准字体大小计算示例</title>
+    <style>
+        /* 重置默认样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 设置基准字体大小 */
+        html {
+            font-size: 100px;
+        }
+
+        /* 设置容器宽度 */
+        .container {
+            width: 100vw;
+            margin: 0 auto;
+
+        }
+
+        /* 顶部盒子 */
+        .top_box {
+            display: flex;
+            align-items: center;
+            padding: 0.2rem;
+            background-color: #f5f5f5;
+        }
+
+        .top_box img {
+            width: 3rem;
+            height: 2rem;
+            margin-right: 0.2rem;
+        }
+
+        .top_box .img_info {
+            flex: 1;
+            height: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .top_box h1 {
+            font-size: 0.3rem;
+            color: #333;
+        }
+
+        .top_box .date {
+            font-size: 0.24rem;
+            color: #666;
+        }
+
+        .top_box .city {
+            font-size: 0.24rem;
+            color: #666;
+        }
+
+        /* 内容 */
+        .content {
+            padding: 0.2rem;
+            background-color: #fff;
+            font-size: 0.23rem;
+            color: #333;
+        }
+
+        .content .title {
+            font-size: 0.3rem;
+            color: #333;
+            margin-bottom: 0.2rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="top_box">
+            <img src="https://icviews-1314446280.cos.ap-beijing.myqcloud.com/files/fd60c4db-8a50-47d7-b610-f6c2b8020890.jpg"
+                alt="">
+            <div class="img_info">
+                <h1>赛事标题</h1>
+                <div>
+                    <p class="city">武汉</p>
+                    <p class="date">2021年8月1日-2021年8月1日</p>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <h1 class="title">活动详情</h1>
+            <p>
+                文章示例内容按照发布时间倒序排序内容按照发布时间倒序排序内容按照发布时间倒序排序内容按照发布时间倒序排序内容按照发布时间倒序排序内容按照发布时间倒序排序
+            </p>
+        </div>
+    </div>
+
+    <script>
+        function setBaseFontSize() {
+            var screenWidth = window.innerWidth;
+            var baseFontSize = screenWidth / 750 * 100; // 基准字体大小计算公式
+            document.documentElement.style.fontSize = baseFontSize + 'px';
+        }
+
+        // 页面加载时设置基准字体大小
+        window.onload = setBaseFontSize;
+
+        // 窗口大小改变时重新计算基准字体大小
+        window.onresize = setBaseFontSize;
+    </script>
+
+</body>
+
+</html>
