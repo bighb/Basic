@@ -41,6 +41,7 @@ function toggleTheme(e) {
 
 function useTheme(themeChoice) {
   console.log("themeChoice: ", themeChoice);
+  console.log("document.documentElement: ", document.documentElement);
   document.documentElement.style.setProperty(
     "--primary-color",
     theme[themeChoice]["--primary-color"]
